@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Golang025 End Of Internal Memory - BGCE ARCHIVE</title>
+        <title>Golang035 Bp Sp - BGCE ARCHIVE</title>
 
 
         <!-- Custom HTML head -->
@@ -158,127 +158,133 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="class-25---internal-memory-deep-dive-compilation--execution-phases"><a class="header" href="#class-25---internal-memory-deep-dive-compilation--execution-phases">Class 25 - Internal Memory Deep Dive: Compilation &amp; Execution Phases</a></h1>
-<hr />
-<h2 id="-topics-covered"><a class="header" href="#-topics-covered">✨ Topics Covered</a></h2>
-<p>This class focused on the internal workings of a Go program with a spotlight on what happens under the hood during:</p>
+                        <h1 id="-cpu-structure-and-stack-frame-execution-notes"><a class="header" href="#-cpu-structure-and-stack-frame-execution-notes">🧠 CPU Structure and Stack Frame Execution Notes</a></h1>
+<h2 id="-cpu-two-core-components"><a class="header" href="#-cpu-two-core-components">🔹 CPU: Two Core Components</a></h2>
+<ol>
+<li>
+<p><strong>Processing Unit</strong></p>
 <ul>
-<li><strong>Compilation Phase</strong></li>
-<li><strong>Execution Phase</strong></li>
-<li>How Go builds a binary with <code>go build</code></li>
-<li>What gets stored in that binary (functions, constants, globals, etc.)</li>
-<li>How function expressions (e.g., <code>add := func(...)</code>) are treated in memory</li>
-</ul>
-<hr />
-<h2 id="-key-concepts"><a class="header" href="#-key-concepts">👍 Key Concepts</a></h2>
-<div class="table-wrapper"><table><thead><tr><th>Concept</th><th>Explanation</th></tr></thead><tbody>
-<tr><td><strong>Compilation Phase</strong></td><td>Parses and compiles source code into a binary executable. No code runs yet.</td></tr>
-<tr><td><strong>Execution Phase</strong></td><td>Runs the compiled binary, starting from <code>init()</code> and then <code>main()</code>.</td></tr>
-<tr><td><strong>Code Segment</strong></td><td>Where compiled functions (<code>main</code>, <code>call</code>, anonymous <code>add</code>) and constants (<code>a</code>) are stored as part of executable instructions.</td></tr>
-<tr><td><strong>Data Segment</strong></td><td>Holds global variables (like <code>p</code>).</td></tr>
-<tr><td><strong>Function Expressions</strong></td><td>Treated as runtime function objects, stored in code segment.</td></tr>
-</tbody></table>
-</div>
-<hr />
-<h2 id="-code-used-in-class-25"><a class="header" href="#-code-used-in-class-25">📋 Code Used in Class 25</a></h2>
-<pre><code class="language-go">package main
-
-import "fmt"
-
-const a = 10 // constant
-var p = 100
-
-func call() {
-	add := func(x int, y int) {
-		z := x + y
-		fmt.Println(z)
-	}
-
-	add(5, 6)
-	add(p, a)
-}
-
-func main() {
-	call()
-	fmt.Println(a)
-}
-
-func init() {
-	fmt.Println("Hello")
-}
-</code></pre>
-<hr />
-<h2 id="-compilation-phase-visualized"><a class="header" href="#-compilation-phase-visualized">🔄 Compilation Phase Visualized</a></h2>
-<h3 id="go-build-maingo"><a class="header" href="#go-build-maingo"><code>go build main.go</code></a></h3>
-<ul>
-<li><strong>Parser/Compiler</strong> checks for syntax, scope, and dependencies.</li>
-<li>Stores:
-<ul>
-<li>Constants: <code>a = 10</code></li>
-<li>Globals: <code>p = 100</code></li>
-<li>Functions: <code>init</code>, <code>main</code>, <code>call</code>, and the anonymous <code>add</code> function inside <code>call</code></li>
+<li><strong>Arithmetic Logic Unit (ALU)</strong>: Performs all arithmetic and logical operations.</li>
+<li><strong>Control Unit (CU)</strong>: Directs operations within the CPU; controls input/output and instruction decoding.</li>
 </ul>
 </li>
-<li>Generates a <strong>binary</strong> that includes all necessary machine code + metadata.</li>
-</ul>
-<p>Binary includes:</p>
+<li>
+<p><strong>Register Set</strong></p>
 <ul>
-<li>Code Segment: <code>const a</code>, <code>main</code>, <code>call</code>, anonymous function</li>
-<li>Data Segment: <code>var p</code></li>
-<li>No execution happens here.</li>
+<li><strong>Program Counter (PC)</strong>: Holds the address of the next instruction to be executed.</li>
+<li><strong>Stack Pointer (SP)</strong>: Points to the top of the current stack in memory.</li>
+<li><strong>Base Pointer (BP)</strong>: Points to the base of the current function stack frame.</li>
+<li><strong>Instruction Register (IR)</strong>: Holds the currently executing instruction.</li>
+<li><strong>General Purpose Registers</strong>: For temporary data manipulation.</li>
 </ul>
+</li>
+</ol>
 <hr />
-<h2 id="-execution-phase-visualized"><a class="header" href="#-execution-phase-visualized">⏱ Execution Phase Visualized</a></h2>
-<pre><code>   1. init()            =&gt; "Hello"
-   2. main()            =&gt; calls call()
-   3. call()            =&gt; declares and invokes add()
-       - add(5, 6)      =&gt; 11
-       - add(100, 10)   =&gt; 110
-   4. fmt.Println(a)    =&gt; 10
+<h2 id="-bits-and-bytes"><a class="header" href="#-bits-and-bytes">🔹 Bits and Bytes</a></h2>
+<ul>
+<li><strong>8-bit = 1 byte</strong></li>
+<li><strong>32-bit = 4 bytes</strong></li>
+<li><strong>64-bit = 8 bytes</strong></li>
+</ul>
+<p>Memory addressing = ( 2^n )</p>
+<hr />
+<h2 id="-ram-addressing-on-32-bit-system"><a class="header" href="#-ram-addressing-on-32-bit-system">🔹 RAM Addressing on 32-bit System</a></h2>
+<p>Memory cells increase by 4 bytes (since 32-bit = 4 bytes):</p>
+<pre><code>Address:  0   4   8  12  16  20  24  ...
+         [ ] [ ] [ ] [ ] [ ] [ ] [ ]
 </code></pre>
 <hr />
-<h2 id="-memory-layout"><a class="header" href="#-memory-layout">🧠 Memory Layout</a></h2>
-<pre><code>┌─────────────────────────────┐
-│       Code Segment          │
-│-----------------------------│
-│ const a = 10                |
-| main, call, init, add-func  │
-└─────────────────────────────┘
-          ↓
-┌─────────────────────────────┐
-│       Data Segment          │
-│-----------------------------│
-│ var p = 100                 │
-└─────────────────────────────┘
-          ↓
-┌─────────────────────────────┐
-│           Stack             │
-│-----------------------------│
-│ call() frame → add func     │
-│   x=5,y=6,z=11              │
-│   x=100,y=10,z=110          │
-└─────────────────────────────┘
-</code></pre>
-<hr />
-<h2 id="-summary"><a class="header" href="#-summary">🔹 Summary</a></h2>
+<h2 id="-os-ram-and-process-execution"><a class="header" href="#-os-ram-and-process-execution">🔹 OS, RAM, and Process Execution</a></h2>
+<ol>
+<li><strong>OS pulls executable code</strong> from HDD → loads into <strong>RAM</strong></li>
+<li><strong>OS creates a process</strong></li>
+<li><strong>RAM segments the process memory into:</strong>
 <ul>
-<li>Go runs in <strong>two phases</strong>: Compilation and Execution.</li>
-<li>During <strong>compilation</strong>, Go prepares memory layout, compiles functions and expressions.</li>
-<li>In <strong>execution</strong>, it runs <code>init()</code> and then <code>main()</code>.</li>
-<li><strong>Function expressions</strong> like <code>add := func(...)</code> are first-class values and live in the code segment.</li>
-<li>The resulting binary from <code>go build</code> holds everything: code, data, metadata.</li>
+<li>Code Segment (for constants and instructions)</li>
+<li>Data Segment (for global/static variables)</li>
+<li>Stack (for function calls and local variables)</li>
+<li>Heap (for dynamically allocated memory)</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="-stack-frame-in-function-call"><a class="header" href="#-stack-frame-in-function-call">🔹 Stack Frame in Function Call</a></h2>
+<ul>
+<li>The OS sets up <strong>SP</strong> and <strong>BP</strong>.</li>
+<li><strong>SP &lt; BP</strong> (SP points lower in memory).</li>
+</ul>
+<h3 id="stack-frame-layout"><a class="header" href="#stack-frame-layout">Stack Frame Layout:</a></h3>
+<pre><code>[ Local Variables        ]   &lt;-- SP (grows downward)
+[ Old Base Pointer       ]
+[ Return Address         ]
+[ Parameters (right→left)]   &lt;-- BP
+</code></pre>
+<ul>
+<li><strong>Return Address</strong> is typically at <code>BP + 4</code>, <code>+8</code>, <code>+16</code>, etc.</li>
+<li>Using <strong>BP</strong>, the CPU can easily access:
+<ul>
+<li>Function parameters</li>
+<li>Return address</li>
+<li>Local variables</li>
+</ul>
+</li>
 </ul>
 <hr />
+<h2 id="-stack-frame-exit"><a class="header" href="#-stack-frame-exit">🔹 Stack Frame Exit</a></h2>
+<ul>
+<li>Stack frame pops:
+<ul>
+<li>Local variables</li>
+<li>Old BP is restored</li>
+<li>SP is reset</li>
+<li>Execution jumps to Return Address</li>
+</ul>
+</li>
+</ul>
+<h3 id="final-condition"><a class="header" href="#final-condition">Final Condition:</a></h3>
+<pre><code>BP == SP  =&gt; Stack Frame Closed
+</code></pre>
+<hr />
+<h2 id="-diagram-stack-frame-example-32-bit"><a class="header" href="#-diagram-stack-frame-example-32-bit">🧭 Diagram: Stack Frame Example (32-bit)</a></h2>
+<pre><code class="language-plaintext">Memory Address ↓
+
++----------------------+  &lt;- BP
+| Parameter 1          |
++----------------------+
+| Parameter 2          |
++----------------------+
+| Return Address       | &lt;- BP + 4
++----------------------+
+| Old Base Pointer     | &lt;- BP + 8
++----------------------+
+| Local Variable A     | &lt;- SP
++----------------------+
+
+Stack grows downward ↓
+</code></pre>
+<hr />
+<h2 id="-summary"><a class="header" href="#-summary">✅ Summary</a></h2>
+<ul>
+<li>CPU is divided into <strong>Processing Unit</strong> and <strong>Register Set</strong></li>
+<li>The <strong>Stack Frame</strong> is key to function call handling</li>
+<li><strong>Base Pointer (BP)</strong> acts as a fixed reference point</li>
+<li><strong>Stack Pointer (SP)</strong> moves during function execution</li>
+<li><strong>Returning</strong> from a function resets <strong>BP</strong> and <strong>SP</strong></li>
+</ul>
+<hr />
+<blockquote>
+<p>Understanding stack frames is essential for debugging, compiler design, and low-level programming.</p>
+</blockquote>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../../../interview-qna/class-wise/golang024-internal-memory/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../../interview-qna/class-wise/golang029-array/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../../../interview-qna/class-wise/golang026-closure/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../../interview-qna/topic-wise/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -288,11 +294,11 @@ func init() {
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../../../interview-qna/class-wise/golang024-internal-memory/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../../interview-qna/class-wise/golang029-array/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../../../interview-qna/class-wise/golang026-closure/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../../interview-qna/topic-wise/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
