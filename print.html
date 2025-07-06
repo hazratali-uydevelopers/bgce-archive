@@ -1007,6 +1007,761 @@ func main() {
 <li><code>main()</code> ফাংশনের মধ্যে <code>add(a, b)</code> ব্যবহার করে আমরা ফাংশনটি কল করেছি।</li>
 </ul>
 <p>[Author : @shahriar-em0n  Date: 2025-06-11 Category: interview-qa/class-wise ]</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="-class-11---function-with-return-values-and-types"><a class="header" href="#-class-11---function-with-return-values-and-types">📘 Class 11 :  Function with Return Values and Types</a></h1>
+<p>Go তে ফাংশনের মাধ্যমে আমরা একটি অথবা একাধিক ভ্যালু রিটার্ন করতে পারি।। ফাংশন শুধু কাজ করেই শেষ নয় আমরা চাইলে ফাংশন থেকে ফলাফলও (result) ফিরে পেতে পারি। একে বলে <strong>Return Value</strong>।</p>
+<p>Go-তে ফাংশন থেকে দুই ধরনের রিটার্ন হতে পারে:</p>
+<ul>
+<li>✅ <strong>Single Return Value (একটি মান ফেরত দেয়)</strong></li>
+<li>✅ <strong>Multiple Return Values (একাধিক মান ফেরত দেয়)</strong></li>
+</ul>
+<hr />
+<h2 id="-single-return-value"><a class="header" href="#-single-return-value">🔹 Single Return Value</a></h2>
+<p>ফাংশন যখন <strong>একটি মাত্র ফলাফল</strong> ফেরত দেয়, তখন তাকে Single Return Function বলা হয়।</p>
+<h3 id="-উদাহরণঃ"><a class="header" href="#-উদাহরণঃ">✅ উদাহরণঃ</a></h3>
+<pre><code class="language-go">package main
+
+import "fmt"
+
+// একক রিটার্ন ভ্যালু সহ ফাংশন
+func add(num1 int, num2 int) int {
+	sum := num1 + num2
+	fmt.Println("ফাংশনের ভিতরে যোগফল:", sum)
+	return sum
+}
+
+func main() {
+	a := 10
+	b := 20
+
+	result := add(a, b) // রিটার্ন মানটি result এ রাখছি
+	fmt.Println("main ফাংশনে রিটার্ন মান:", result)
+}
+</code></pre>
+<h3 id="-বযাখযাঃ"><a class="header" href="#-বযাখযাঃ">🔎 ব্যাখ্যাঃ</a></h3>
+<ul>
+<li><code>add()</code> ফাংশন দুটি ইনপুট নেয়: <code>num1</code> এবং <code>num2</code>।</li>
+<li>এটি তাদের যোগফল <code>sum</code> হিসেব করে ফেরত দেয় <code>return sum</code>।</li>
+<li><code>main()</code> ফাংশনে এই রিটার্ন মানটি <code>result</code> ভ্যারিয়েবলে রাখা হয়।</li>
+</ul>
+<hr />
+<h2 id="-multiple-return-values"><a class="header" href="#-multiple-return-values">🔹 Multiple Return Values</a></h2>
+<p>ফাংশন যদি <strong>একাধিক ফলাফল একসাথে</strong> ফেরত দেয়, তাহলে সেটাকে Multiple Return Function বলা হয়।</p>
+<h3 id="-উদাহরণঃ-1"><a class="header" href="#-উদাহরণঃ-1">✅ উদাহরণঃ</a></h3>
+<pre><code class="language-go">package main
+
+import "fmt"
+
+// একাধিক রিটার্ন ভ্যালু সহ ফাংশন
+func getNumbers(num1 int, num2 int) (int, int) {
+	sum := num1 + num2
+	mul := num1 * num2
+	return sum, mul
+}
+
+func main() {
+	a := 10
+	b := 20
+
+	// দুটি রিটার্ন মান আলাদা করে নিচ্ছি
+	p, q := getNumbers(a, b)
+	
+	fmt.Println("যোগফল =", p)
+	fmt.Println("গুণফল =", q)
+}
+</code></pre>
+<h3 id="-বযাখযাঃ-1"><a class="header" href="#-বযাখযাঃ-1">🔎 ব্যাখ্যাঃ</a></h3>
+<ul>
+<li><code>getNumbers()</code> ফাংশন দুটি ইনপুট নেয় এবং দুইটি আউটপুট দেয়: <strong>যোগফল</strong> (<code>sum</code>) এবং <strong>গুণফল</strong> (<code>mul</code>)।</li>
+<li>আমরা <code>main()</code> ফাংশনে <code>p, q := getNumbers(a, b)</code> ব্যবহার করে রিটার্ন মানগুলো আলাদা করে নিই।</li>
+</ul>
+<hr />
+<h2 id="-সংকষেপে-মনে-রাখুন"><a class="header" href="#-সংকষেপে-মনে-রাখুন">✅ সংক্ষেপে মনে রাখুন:</a></h2>
+<blockquote>
+<p>Go প্রোগ্রামিং ভাষায় ফাংশন থেকে আমরা একটি বা একাধিক মান রিটার্ন করতে পারি।</p>
+</blockquote>
+<h2 id="ফাংশনের-return-value-single-vs-multiple"><a class="header" href="#ফাংশনের-return-value-single-vs-multiple">ফাংশনের Return Value: Single vs Multiple</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>ধরন</th><th>রিটার্ন সংখ্যা</th><th>রিটার্ন টাইপ</th><th>কী ফেরত দেয়?</th><th>উদাহরণ ফাংশন</th><th>ডিক্লেয়ার করার ধরন</th></tr></thead><tbody>
+<tr><td>Single Return</td><td>১টি মান</td><td><code>int</code></td><td>একটি পূর্ণসংখ্যা</td><td><code>add()</code></td><td><code>func add() int</code></td></tr>
+<tr><td>Single Return</td><td>১টি মান</td><td><code>string</code></td><td>একটি স্ট্রিং</td><td><code>getName()</code></td><td><code>func getName() string</code></td></tr>
+<tr><td>Single Return</td><td>১টি মান</td><td><code>rune</code></td><td>একটি ক্যারেক্টার</td><td><code>getChar()</code></td><td><code>func getChar() rune</code></td></tr>
+<tr><td>Single Return</td><td>১টি মান</td><td><code>float64</code></td><td>একটি ভাসমান সংখ্যা</td><td><code>getAverage()</code></td><td><code>func getAverage() float64</code></td></tr>
+<tr><td>Multiple Return</td><td>একাধিক মান</td><td><code>(int, int)</code></td><td>দুইটি পূর্ণসংখ্যা</td><td><code>getNumbers()</code></td><td><code>func getNumbers() (int, int)</code></td></tr>
+<tr><td>Multiple Return</td><td>একাধিক মান</td><td><code>(string, int)</code></td><td>স্ট্রিং ও সংখ্যা</td><td><code>getUserInfo()</code></td><td><code>func getUserInfo() (string, int)</code></td></tr>
+</tbody></table>
+</div>
+<h2 id="সাধারণ-return-টাইপ-বযাখযা"><a class="header" href="#সাধারণ-return-টাইপ-বযাখযা">সাধারণ Return টাইপ ব্যাখ্যা</a></h2>
+<ul>
+<li><code>int</code> - পূর্ণসংখ্যা (যেমন: 5, 100)</li>
+<li><code>float64</code> - দশমিক সংখ্যা (যেমন: 3.14, 9.81)</li>
+<li><code>string</code> - স্ট্রিং বা টেক্সট (যেমন: "Shahriar")</li>
+<li><code>rune</code> - একটি ইউনিকোড ক্যারেক্টার (যেমন: 'A', 'ক')</li>
+</ul>
+<p>📝 <strong>নোট:</strong> Go ফাংশনে আমরা দুইটির বেশি মানও রিটার্ন করতে পারি - যেমন ৩টি বা তার বেশি মান। তবে এই টেবিল ও উদাহরণগুলোতে আমরা শুধুমাত্র দুটি মান রিটার্নের উদাহরণ দিয়েছি, যেন বিষয়টি সহজভাবে বোঝানো যায়। প্রয়োজনে ফাংশন থেকে আরও বেশি সংখ্যক মান রিটার্ন করাও সম্ভব এবং এটি পুরোপুরি বৈধ।</p>
+<p>এভাবে Go ফাংশন return value এর মাধ্যমে কার্যকরভাবে তথ্য ফেরত দিতে পারে, যা কোডকে modular এবং পরিষ্কার করে তোলে।</p>
+<hr />
+<h2 id="note"><a class="header" href="#note">Note</a></h2>
+<p>Go-তে ফাংশনের মাধ্যমে কোডকে পরিষ্কার ও পুনঃব্যবহারযোগ্য করা যায়। return value ব্যবহার করে আমরা ফাংশনের কাজের ফলাফল main() ফাংশনে এনে ব্যবহার করতে পারি। একাধিক মান ফেরত দেওয়ার ক্ষমতা Go ভাষাকে আরও শক্তিশালী করে তোলে।</p>
+<p>[Author : @shahriar-em0n  Date: 2025-06-13 Category: interview-qa/class-wise ]</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="-class-12--more-function-examples"><a class="header" href="#-class-12--more-function-examples">📘 Class 12 : More Function Examples</a></h1>
+<p>এখানে আরও কিছু ফাংশনের উদাহরণ দেওয়া হলো।</p>
+<hr />
+<h2 id="-function-1-printsomething"><a class="header" href="#-function-1-printsomething">✅ Function 1: <code>printSomething()</code></a></h2>
+<p>এই ফাংশনটি কোন আর্গুমেন্ট নেয় না এবং কোন রিটার্ন ভ্যালুও দেয় না। শুধুমাত্র একটি লাইন প্রিন্ট করে।</p>
+<h3 id="-code"><a class="header" href="#-code">📄 Code:</a></h3>
+<pre><code class="language-go">func printSomething(){
+    fmt.Println("Education must be free!")
+}
+</code></pre>
+<h3 id="-বযাখযা-1"><a class="header" href="#-বযাখযা-1">🧠 ব্যাখ্যা:</a></h3>
+<ul>
+<li><code>printSomething()</code> ফাংশনটি কোন ইনপুট নেয় না।</li>
+<li>এটি <code>fmt.Println()</code> ফাংশনের মাধ্যমে একটি মেসেজ প্রিন্ট করে দেয়।</li>
+</ul>
+<hr />
+<h2 id="-function-2-sayhelloname-string"><a class="header" href="#-function-2-sayhelloname-string">✅ Function 2: <code>sayHello(name string)</code></a></h2>
+<p>এই ফাংশনটি একটি প্যারামিটার (string টাইপের <code>name</code>) নেয় এবং একটি স্বাগত বার্তা প্রিন্ট করে।</p>
+<h3 id="-code-1"><a class="header" href="#-code-1">📄 Code:</a></h3>
+<pre><code class="language-go">func sayHello(name string){
+    fmt.Println("Welcome to the golang course, ", name)
+}
+</code></pre>
+<h3 id="-বযাখযা-2"><a class="header" href="#-বযাখযা-2">🧠 ব্যাখ্যা:</a></h3>
+<ul>
+<li><code>sayHello</code> ফাংশনটি একটি <code>name</code> ইনপুট নেয়, যা <code>string</code> টাইপের।</li>
+<li>এরপর <code>fmt.Println()</code> ব্যবহার করে সেই নামসহ একটি মেসেজ প্রিন্ট করে।</li>
+</ul>
+<hr />
+<h2 id="-main-function"><a class="header" href="#-main-function">🔁 Main Function</a></h2>
+<h3 id="-code-2"><a class="header" href="#-code-2">📄 Code:</a></h3>
+<pre><code class="language-go">func main() {
+    printSomething()
+    sayHello("Shahriar")
+}
+</code></pre>
+<h3 id="-বযাখযা-3"><a class="header" href="#-বযাখযা-3">🧠 ব্যাখ্যা:</a></h3>
+<ul>
+<li>
+<p><code>main()</code> ফাংশন হচ্ছে Go প্রোগ্রামের এন্ট্রি পয়েন্ট।</p>
+</li>
+<li>
+<p>এখানে প্রথমে <code>printSomething()</code> কল করা হয়েছে, তাই এটি <code>"Education must be free!"</code> প্রিন্ট করবে।</p>
+</li>
+<li>
+<p>তারপর <code>sayHello("Shahriar")</code> কল করা হয়েছে, তাই এটি <code>"Welcome to the golang course, Shahriar"</code> প্রিন্ট
+func showPrice(price float64){</p>
+<p>fmt.Println("The product price is: $", price)</p>
+</li>
+</ul>
+<p>}করবে।</p>
+<hr />
+<h2 id="-সংকষেপে"><a class="header" href="#-সংকষেপে">🧾 সংক্ষেপে</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>ফাংশনের নাম</th><th>প্যারামিটার</th><th>কাজ</th><th>রিটার্ন</th></tr></thead><tbody>
+<tr><td><code>printSomething()</code></td><td>নাই</td><td>একটি মেসেজ প্রিন্ট করে</td><td>নাই</td></tr>
+<tr><td><code>sayHello(name string)</code></td><td>একটি স্ট্রিং</td><td>নামসহ মেসেজ প্রিন্ট করে</td><td>নাই</td></tr>
+</tbody></table>
+</div>
+<p>[Author : @shahriar-em0n Date: 2025-06-13 Category: interview-qa/class-wise ]</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="-class-13-why-functions-are-needed"><a class="header" href="#-class-13-why-functions-are-needed">📘 Class 13: Why Functions Are Needed?</a></h1>
+<h2 id="-১-কেন-ফাংশন-দরকার"><a class="header" href="#-১-কেন-ফাংশন-দরকার">✅ ১. কেন ফাংশন দরকার?</a></h2>
+<p>প্রোগ্রাম লেখার সময় অনেক সময় দেখা যায়  একই ধরণের কাজ বারবার করতে হচ্ছে। যেমন: ইউজারের নাম নেওয়া, সংখ্যা নেওয়া, বা একটা মেসেজ প্রিন্ট করা।</p>
+<p>👉 যদি এগুলো আমরা বারবার <code>main()</code> ফাংশনের মধ্যে লিখি, তাহলে:</p>
+<ul>
+<li>কোড অনেক বড় ও জটিল হয়ে যায়</li>
+<li>একই কোড বারবার লিখতে হয় (repetition)</li>
+<li>কোড মেইনটেইন করা কঠিন হয়</li>
+</ul>
+<p>📌 <strong>ফাংশন ব্যবহার করলে:</strong></p>
+<ul>
+<li>কোড ছোট ছোট অংশে ভাগ করা যায় (Modular Code)</li>
+<li>একবার লিখে বারবার ব্যবহার করা যায় (Reusable)</li>
+<li>বোঝা এবং মেইনটেইন করা সহজ হয়</li>
+<li>বাগ (bug) ধরা ও ঠিক করা সহজ হয়</li>
+</ul>
+<hr />
+<h2 id="example--ফাংশন-বযবহার-করার-আগে"><a class="header" href="#example--ফাংশন-বযবহার-করার-আগে">Example : ফাংশন ব্যবহার করার আগে</a></h2>
+<p>এখানে একটি প্রোগ্রাম দেখানো হয়েছে যেখানে কোন ফাংশন ব্যবহার করা হয়নি:</p>
+<pre><code class="language-go">package main
+
+import "fmt"
+
+func main() {
+    // Print welcome message
+    fmt.Println("Welcome to the application")
+
+    // Get user name as input
+    var name string
+    fmt.Println("Enter your name - ")
+    fmt.Scanln(&amp;name)
+
+    var num1 int
+    var num2 int
+    fmt.Println("Enter first number - ")
+    fmt.Scanln(&amp;num1)
+    fmt.Println("Enter second number - ")
+    fmt.Scanln(&amp;num2)
+
+    sum := num1 + num2
+
+    // display results
+    fmt.Println("Hello, ", name)
+    fmt.Println("Summation = ", sum)
+
+    // print a goodbye message
+    fmt.Println("Thank you for using the application")
+    fmt.Println("Goodbye")
+}
+</code></pre>
+<h3 id="-সমসযা"><a class="header" href="#-সমসযা">🧠 সমস্যা:</a></h3>
+<ul>
+<li>একই <code>main()</code> ফাংশনে সবকিছু একত্রে থাকায় কোডটি বড় ও জটিল হয়ে গেছে</li>
+<li>পুনরায় ব্যবহারযোগ্যতা নেই</li>
+<li>মেইনটেন করা কঠিন</li>
+</ul>
+<hr />
+<h2 id="-ফাংশন-বযবহার-করার-পরে"><a class="header" href="#-ফাংশন-বযবহার-করার-পরে">✅ ফাংশন ব্যবহার করার পরে</a></h2>
+<p>একই কাজকে ফাংশনের মাধ্যমে ভাগ করে সহজ করা হয়েছে:</p>
+<pre><code class="language-go">package main
+
+import "fmt"
+
+func printWelcomeMessage() {
+    fmt.Println("Welcome to the application")
+}
+
+func getUserName() string {
+    var name string
+    fmt.Println("Enter your name - ")
+    fmt.Scanln(&amp;name)
+    return name
+}
+
+func getTowNumbers() (int, int) {
+    var num1 int
+    var num2 int
+    fmt.Println("Enter first number - ")
+    fmt.Scanln(&amp;num1)
+    fmt.Println("Enter second number - ")
+    fmt.Scanln(&amp;num2)-
+    return num1, num2
+}
+
+func add(num1 int, num2 int) int {
+    sum := num1 + num2
+    return sum
+}
+
+func display(name string, sum int) {
+    fmt.Println("Hello, ", name)
+    fmt.Println("Summation = ", sum)
+}
+
+func printGoodByeMessage() {
+    fmt.Println("Thank you for using the application")
+    fmt.Println("Goodbye")
+}
+
+func main() {
+    printWelcomeMessage()
+    name := getUserName()
+    num1, num2 := getTowNumbers()
+    sum := add(num1, num2)
+    display(name, sum)
+    printGoodByeMessage()
+}
+</code></pre>
+<h3 id="-সুবিধা"><a class="header" href="#-সুবিধা">✅ সুবিধা:</a></h3>
+<ul>
+<li>প্রতিটি কাজ আলাদা ফাংশনে রাখা হয়েছে</li>
+<li>কোড সহজ ও সুন্দর হয়েছে</li>
+<li>বারবার ব্যবহারযোগ্যতা বেড়েছে</li>
+<li>মেইনটেন করা সহজ হয়েছে</li>
+</ul>
+<hr />
+<h2 id="-২-মডুলার-কোড-কাকে-বলে"><a class="header" href="#-২-মডুলার-কোড-কাকে-বলে">✅ ২. মডুলার কোড কাকে বলে?</a></h2>
+<p><strong>Modular code</strong> মানে হচ্ছে, পুরো প্রোগ্রামকে ছোট ছোট "module" বা অংশে ভাগ করে লেখা। প্রতিটি অংশ একটা নির্দিষ্ট কাজ করে।</p>
+<p>📌 উদাহরণ:</p>
+<div class="table-wrapper"><table><thead><tr><th>ফাংশনের নাম</th><th>কাজ</th></tr></thead><tbody>
+<tr><td><code>getUserName()</code></td><td>ইউজারের নাম নেওয়া</td></tr>
+<tr><td><code>getTwoNumbers()</code></td><td>দুটি সংখ্যা ইনপুট নেওয়া</td></tr>
+<tr><td><code>add()</code></td><td>যোগফল বের করা</td></tr>
+<tr><td><code>display()</code></td><td>ফলাফল দেখানো</td></tr>
+</tbody></table>
+</div>
+<p>এভাবে প্রতিটি কাজের জন্য আলাদা ফাংশন থাকলে:</p>
+<p>✅ বুঝতে সহজ<br />
+✅ পুনঃব্যবহারযোগ্য (Reusable)<br />
+✅ টেস্ট/বাগ ফিক্স সহজ<br />
+✅ ভবিষ্যতে বড় সফটওয়্যারে সহজে এক্সটেন্ড করা যায়</p>
+<hr />
+<h3 id="-৩-solid-এর-s--single-responsibility-principle"><a class="header" href="#-৩-solid-এর-s--single-responsibility-principle">✅ ৩. SOLID এর S – Single Responsibility Principle</a></h3>
+<p><strong>S = Single Responsibility Principle (SRP)</strong><br />
+👉 এটি বলে: "একটি ফাংশনের <strong>মাত্র একটি কাজ</strong> (responsibility) থাকা উচিত।"</p>
+<hr />
+<h3 id="-কেন-srp-গুরুতবপূরণ"><a class="header" href="#-কেন-srp-গুরুতবপূরণ">🧠 কেন SRP গুরুত্বপূর্ণ?</a></h3>
+<ul>
+<li>এতে কোড <strong>সুস্পষ্ট</strong> ও <strong>সহজবোধ্য</strong> হয়</li>
+<li>একটি ফাংশনে পরিবর্তন করলে অন্যগুলো <strong>ভাঙে না</strong></li>
+<li><strong>বাগ ফিক্সিং সহজ</strong> হয়</li>
+<li><strong>টেস্টিং সহজ</strong> হয়</li>
+</ul>
+<hr />
+<p>📌 উদাহরণ:</p>
+<p><strong>❌ খারাপ ডিজাইন (SRP ভঙ্গ করছে):</strong></p>
+<pre><code class="language-go">func handleEverything() {
+    // ইনপুট নেয়
+    // হিসাব করে
+    // প্রিন্ট করে
+}
+</code></pre>
+<p>এই ফাংশন অনেক কাজ করছে একসাথে - যা SRP ভঙ্গ করে।</p>
+<p><strong>✅ ভালো ডিজাইন (SRP মেনে চলছে):</strong></p>
+<pre><code class="language-go">func getUserName() {}
+func add() {}
+func display() {}
+</code></pre>
+<p>এখানে প্রতিটি ফাংশন একটি মাত্র কাজ করছে - এটিই SRP।</p>
+<hr />
+<h2 id="-কলাসের-সারাংশ"><a class="header" href="#-কলাসের-সারাংশ">🎯 ক্লাসের সারাংশ:</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>বিষয়</th><th>শেখা হয়েছে</th></tr></thead><tbody>
+<tr><td>ফাংশনের প্রয়োজনীয়তা</td><td>✅</td></tr>
+<tr><td>কোড মডুলার করার উপায়</td><td>✅</td></tr>
+<tr><td>SOLID এর 'S' – Single Responsibility</td><td>✅ উদাহরণসহ</td></tr>
+</tbody></table>
+</div>
+<h3 id="-সমসযা-1"><a class="header" href="#-সমসযা-1">🧠 সমস্যা:</a></h3>
+<ul>
+<li>একই <code>main()</code> ফাংশনে সবকিছু একত্রে থাকায় কোডটি বড় ও জটিল হয়ে গেছে</li>
+<li>পুনরায় ব্যবহারযোগ্যতা নেই</li>
+<li>মেইনটেন করা কঠিন</li>
+</ul>
+<hr />
+<h2 id="-ফাংশন-বযবহার-করার-পরে-1"><a class="header" href="#-ফাংশন-বযবহার-করার-পরে-1">✅ ফাংশন ব্যবহার করার পরে</a></h2>
+<p>একই কাজকে ফাংশনের মাধ্যমে ভাগ করে সহজ করা হয়েছে:</p>
+<pre><code class="language-go">package main
+
+import "fmt"
+
+func printWelcomeMessage() {
+    fmt.Println("Welcome to the application")
+}
+
+func getUserName() string {
+    var name string
+    fmt.Println("Enter your name - ")
+    fmt.Scanln(&amp;name)
+    return name
+}
+
+func getTowNumbers() (int, int) {
+    var num1 int
+    var num2 int
+    fmt.Println("Enter first number - ")
+    fmt.Scanln(&amp;num1)
+    fmt.Println("Enter second number - ")
+    fmt.Scanln(&amp;num2)-
+    return num1, num2
+}
+
+func add(num1 int, num2 int) int {
+    sum := num1 + num2
+    return sum
+}
+
+func display(name string, sum int) {
+    fmt.Println("Hello, ", name)
+    fmt.Println("Summation = ", sum)
+}
+
+func printGoodByeMessage() {
+    fmt.Println("Thank you for using the application")
+    fmt.Println("Goodbye")
+}
+
+func main() {
+    printWelcomeMessage()
+    name := getUserName()
+    num1, num2 := getTowNumbers()
+    sum := add(num1, num2)
+    display(name, sum)
+    printGoodByeMessage()
+}
+</code></pre>
+<h3 id="-সুবিধা-1"><a class="header" href="#-সুবিধা-1">✅ সুবিধা:</a></h3>
+<ul>
+<li>প্রতিটি কাজ আলাদা ফাংশনে রাখা হয়েছে</li>
+<li>কোড সহজ ও সুন্দর হয়েছে</li>
+<li>বারবার ব্যবহারযোগ্যতা বেড়েছে</li>
+<li>মেইনটেন করা সহজ হয়েছে</li>
+</ul>
+<hr />
+<h2 id="-২-মডুলার-কোড-কাকে-বলে-1"><a class="header" href="#-২-মডুলার-কোড-কাকে-বলে-1">✅ ২. মডুলার কোড কাকে বলে?</a></h2>
+<p><strong>Modular code</strong> মানে হচ্ছে, পুরো প্রোগ্রামকে ছোট ছোট "module" বা অংশে ভাগ করে লেখা। প্রতিটি অংশ একটা নির্দিষ্ট কাজ করে।</p>
+<p>📌 উদাহরণ:</p>
+<div class="table-wrapper"><table><thead><tr><th>ফাংশনের নাম</th><th>কাজ</th></tr></thead><tbody>
+<tr><td><code>getUserName()</code></td><td>ইউজারের নাম নেওয়া</td></tr>
+<tr><td><code>getTwoNumbers()</code></td><td>দুটি সংখ্যা ইনপুট নেওয়া</td></tr>
+<tr><td><code>add()</code></td><td>যোগফল বের করা</td></tr>
+<tr><td><code>display()</code></td><td>ফলাফল দেখানো</td></tr>
+</tbody></table>
+</div>
+<p>এভাবে প্রতিটি কাজের জন্য আলাদা ফাংশন থাকলে:</p>
+<p>✅ বুঝতে সহজ<br />
+✅ পুনঃব্যবহারযোগ্য (Reusable)<br />
+✅ টেস্ট/বাগ ফিক্স সহজ<br />
+✅ ভবিষ্যতে বড় সফটওয়্যারে সহজে এক্সটেন্ড করা যায়</p>
+<hr />
+<h3 id="-৩-solid-এর-s--single-responsibility-principle-1"><a class="header" href="#-৩-solid-এর-s--single-responsibility-principle-1">✅ ৩. SOLID এর S – Single Responsibility Principle</a></h3>
+<p><strong>S = Single Responsibility Principle (SRP)</strong><br />
+👉 এটি বলে: "একটি ফাংশনের <strong>মাত্র একটি কাজ</strong> (responsibility) থাকা উচিত।"</p>
+<hr />
+<h3 id="-কেন-srp-গুরুতবপূরণ-1"><a class="header" href="#-কেন-srp-গুরুতবপূরণ-1">🧠 কেন SRP গুরুত্বপূর্ণ?</a></h3>
+<ul>
+<li>এতে কোড <strong>সুস্পষ্ট</strong> ও <strong>সহজবোধ্য</strong> হয়</li>
+<li>একটি ফাংশনে পরিবর্তন করলে অন্যগুলো <strong>ভাঙে না</strong></li>
+<li><strong>বাগ ফিক্সিং সহজ</strong> হয়</li>
+<li><strong>টেস্টিং সহজ</strong> হয়</li>
+</ul>
+<hr />
+<p>📌 উদাহরণ:</p>
+<p><strong>❌ খারাপ ডিজাইন (SRP ভঙ্গ করছে):</strong></p>
+<pre><code class="language-go">func handleEverything() {
+    // ইনপুট নেয়
+    // হিসাব করে
+    // প্রিন্ট করে
+}
+</code></pre>
+<p>এই ফাংশন অনেক কাজ করছে একসাথে - যা SRP ভঙ্গ করে।</p>
+<p><strong>✅ ভালো ডিজাইন (SRP মেনে চলছে):</strong></p>
+<pre><code class="language-go">func getUserName() {}
+func getTwoNumbers()
+func add() {}
+func display() {}
+</code></pre>
+<p>এখানে প্রতিটি ফাংশন একটি মাত্র কাজ করছে - এটিই SRP।</p>
+<p>[Author : @shahriar-em0n  Date: 2025-06-13 Category: interview-qa/class-wise ]</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="-class-14-what-is-scope"><a class="header" href="#-class-14-what-is-scope">🧱 Class 14: What is Scope</a></h1>
+<p>Scope বলতে code এর part বুঝায় যেখানে একটি নির্দিষ্ট variable কে access করা যাবে।</p>
+<h2 id="-কলাসে-বযবহৃত-কোড"><a class="header" href="#-কলাসে-বযবহৃত-কোড">📘 ক্লাসে ব্যবহৃত কোড</a></h2>
+<pre><code class="language-go">package main
+
+import "fmt"
+
+var (
+	a = 20
+	b = 30
+)
+
+func add(x int, y int) {
+	z := x + y
+	fmt.Println(z)
+}
+
+func main() {
+	p := 30
+	q := 40
+
+	add(p, q)
+
+	add(a, b)
+
+	add(a, p)
+
+	add(b, z) // ❌ error!
+}
+
+</code></pre>
+<h2 id="-code-explain"><a class="header" href="#-code-explain">✨ Code Explain</a></h2>
+<pre><code class="language-go">var (
+	a = 20
+	b = 30
+)
+</code></pre>
+<p>🔸 RAM এ একটা জায়গায় এ variable গুলো রাখা হয় যেটাকে <strong>global memory</strong> বলা হয়।</p>
+<p>🔸 <code>a</code> এবং <code>b</code> এই দুইটা RAM এর global scope এ declare করা হয়েছে।</p>
+<p>🔸 যেকোন ফাংশনের ভেতর থেকে এগুলোকে ব্যবহার করা যাবে।</p>
+<blockquote>
+<p>🧠 যেসব ভ্যারিয়েবল <code>main()</code> বা অন্য কোনো ফাংশনের বাইরে delare করা হয় - সেগুলো global.</p>
+</blockquote>
+<p>👉 <code>main()</code> এবং <code>add()</code> function ও RAM এর global scope এ থাকে (বুঝার সুবিধার্থে)।</p>
+<h3 id="-শুরুতে-ram-এ-যা-থাকে"><a class="header" href="#-শুরুতে-ram-এ-যা-থাকে">💡 শুরুতে RAM এ যা থাকে</a></h3>
+<pre><code class="language-plaintext">				    RAM
++------------------------------------------+
+| 20 | 30 | ---- |---- |   |   |   |   |   |
++------------------------------------------+
+   a    b   add()  main()
+
+				 global
+</code></pre>
+<blockquote>
+<p>Go প্রোগ্রামে <code>main()</code> ফাংশন না থাকলে, প্রোগ্রাম চলবে না।
+<code>main()</code> হচ্ছে execution শুরু করার জায়গা; ওটা ছাড়া Go বুঝতে পারে না কোথা থেকে শুরু করবে।</p>
+</blockquote>
+<h3 id="main-execution"><a class="header" href="#main-execution"><code>main()</code> Execution</a></h3>
+<pre><code class="language-go">
+func main() {
+	p := 30
+	q := 40
+
+	add(p, q)
+
+	add(a, b)
+
+	add(a, p)
+
+	add(b, z)
+}
+</code></pre>
+<p>🔸RAM এ <code>main()</code> এর জন্য আলাদা জায়গা দখল করে</p>
+<p>🔸p ও q হলো <code>main()</code> এর local variable</p>
+<p>🔸এগুলো <code>main()</code> এর বাইরে থেকে ব্যবহার করা যাবে না</p>
+<pre><code class="language-plaintext">				    RAM
++------------------------------------------+
+| 30 | 40 |  |  |  |  |  |  |  |  |  |  |  |
++------------------------------------------+
+  p    q
+
+  				main()
+</code></pre>
+<ul>
+<li><code>main()</code> এ <code>add()</code> function না থাকায় <code>add()</code> কে global এ খুঁজে</li>
+</ul>
+<h3 id="add-execution"><a class="header" href="#add-execution"><code>add()</code> Execution</a></h3>
+<pre><code class="language-go">func add(x int, y int) {
+	z := x + y
+	fmt.Println(z)
+}
+</code></pre>
+<p>🔸 RAM এ <code>add()</code> এর জন্য আলাদা জায়গা নেয়</p>
+<p>🔸 <code>x</code>, <code>y</code> &amp; <code>z</code> হল <code>add()</code> এর local variable</p>
+<p>🔸 <code>x</code> এবং <code>y</code> হল <code>add()</code> function এর parameter</p>
+<p>🔸<code>add()</code> function শেষ হলে RAM থেকে এদের মুছে ফেলা হয়।</p>
+<pre><code class="language-plaintext">				    RAM
++------------------------------------------+
+| 30 | 40 | 70 |  |  |  |  |  |  |  |  |  |
++------------------------------------------+
+  x    y    z
+
+  				add()
+</code></pre>
+<h3 id="-যদি-সকোপ-ভুলে-যাও"><a class="header" href="#-যদি-সকোপ-ভুলে-যাও">❌ যদি স্কোপ ভুলে যাও</a></h3>
+<pre><code class="language-go">func add(x int, y int) {
+	z := x + q
+	fmt.Println(z)
+}
+</code></pre>
+<p>🔸<code>q</code> variable <code>add()</code> এর local scope এ নেই</p>
+<p>🔸<code>q</code> -&gt; <code>main()</code> এর local variable হওয়ায় global scope এ পাওয়া যাবে না</p>
+<blockquote>
+<p>Scope এর বাইরের variable use করলে <code>undefined</code> compilation error দিবে।</p>
+</blockquote>
+<p><strong>Output:</strong></p>
+<pre><code class="language-go"># command-line-arguments
+./main.go:11:11: undefined: q
+</code></pre>
+<h2 id="-scope-rule"><a class="header" href="#-scope-rule">🧠 Scope Rule</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>কোথায় declare হয়েছে</th><th>কোথা থেকে accessible</th></tr></thead><tbody>
+<tr><td>ফাংশনের বাইরে (global)</td><td>সব ফাংশন থেকে access করা যায় ✅</td></tr>
+<tr><td>ফাংশনের ভিতরে (local)</td><td>শুধু সেই ফাংশনের ভিতরেই accessible ✅</td></tr>
+<tr><td>অন্য ফাংশনের ভিতর</td><td>বাইরে থেকে access করা যায় না ❌</td></tr>
+</tbody></table>
+</div>
+<p>[<strong>Author :</strong> @nazma98
+<strong>Date:</strong> 2025-06-13
+<strong>Category:</strong> interview-qa/class-wise ]</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="class-15---local-scope-and-block"><a class="header" href="#class-15---local-scope-and-block">Class 15 - Local Scope and Block</a></h1>
+<h2 id="-scope-types"><a class="header" href="#-scope-types">🧠 Scope types</a></h2>
+<p>Scope ৩ টাইপের।</p>
+<ul>
+<li>Global scope</li>
+<li>Local scope</li>
+<li>Package scope</li>
+</ul>
+<h2 id="1-global-scope"><a class="header" href="#1-global-scope">1️⃣ Global Scope</a></h2>
+<p>🔹 যে variable বা function, <code>main()</code> এর বাইরে declare করা হয়</p>
+<p>🔹 সব ফাংশন থেকে access করা যায়</p>
+<pre><code class="language-go">var x = 100
+
+func main() {
+	fmt.Println(x)
+}
+</code></pre>
+<p>এখানে <code>x</code> একটি global variable, তাই <code>main()</code> function একে access করতে পারছে।</p>
+<h2 id="-block-scope"><a class="header" href="#-block-scope">🧱 Block Scope</a></h2>
+<p>Go তে যেকোনো <code>{}</code> curly brace কে <code>Block</code> বলে।</p>
+<p>Block এর ভিতরে যদি variable declare করা হয়, তাহলে সেটা সেই block এর local scope এ পরে এবং একে ওই Block এর local variable বলে।</p>
+<h3 id="-code-example"><a class="header" href="#-code-example">✨ Code Example</a></h3>
+<pre><code class="language-go">
+func main() {
+	x := 18
+
+	if x &gt;= 18 {
+		p := 10
+		fmt.Println("I'm matured boy")
+		fmt.Println("I've ", p, " girlfriends")
+	}
+}
+</code></pre>
+<h3 id="-code-explanation"><a class="header" href="#-code-explanation">✨ Code Explanation</a></h3>
+<p><strong>🔹 main() ফাংশন শুরু</strong></p>
+<pre><code class="language-go">func main() {
+	x := 18
+</code></pre>
+<ul>
+<li>এখানে <code>x</code> variable টি <code>main()</code> ফাংশনের ভিতরে declare করা হয়েছে।</li>
+<li><code>x</code> এর scope পুরো <code>main()</code> ফাংশনের ভিতর - একে বলে local variable to <code>main()</code></li>
+</ul>
+<p><strong>🔹 if Block</strong></p>
+<pre><code class="language-go">if x &gt;= 18 {
+	p := 10
+	fmt.Println("I'm matured boy")
+	fmt.Println("I've ", p, " girlfriends")
+}
+</code></pre>
+<ul>
+<li><code>if</code> block শুরু হয়েছে <code>{</code> দিয়ে এবং শেষ হয়েছে <code>}</code> দিয়ে - এটি হলো একটা Block।</li>
+<li>block এর ভিতরে <code>p := 10</code> - তাই <code>p</code> এর scope কেবল <code>if</code> block এর ভিতরেই সীমাবদ্ধ।</li>
+<li><code>p</code> কে <code>main()</code> ফাংশনের বাইরে বা <code>if</code> block এর বাইরে ব্যবহার করা যাবে না</li>
+</ul>
+<h3 id="-ram-visualization-scope-অনুযায়ী"><a class="header" href="#-ram-visualization-scope-অনুযায়ী">🧠 RAM Visualization (Scope অনুযায়ী)</a></h3>
+<pre><code class="language-plaintext">
+                      RAM
++------------------------------+
+| x = 18       ← main() scope  |
++------------------------------+
+
+        ⬇ if block executed
+
++------------------------------+
+| x = 18                       |
+| p = 10   ← if block scope    |
++------------------------------+
+
+        ⛔ if block শেষ হওয়ার পর
+
++------------------------------+
+| x = 18                       |
+| p = ❌ (not accessible)      |
++------------------------------+
+</code></pre>
+<hr />
+<h3 id="-scope-এর-বাইরে-variable-access"><a class="header" href="#-scope-এর-বাইরে-variable-access">🚫 Scope এর বাইরে variable access</a></h3>
+<h4 id="code-example---01"><a class="header" href="#code-example---01">📄Code Example - 01</a></h4>
+<pre><code class="language-go">
+func main() {
+	x := 18
+
+	if x &gt;= 18 {
+		p := 10
+		fmt.Println("I'm matured boy")
+		fmt.Println("I've ", q, " girlfriends")
+	}
+}
+
+</code></pre>
+<h4 id="-code-explanation-1"><a class="header" href="#-code-explanation-1">💬 Code Explanation</a></h4>
+<p><strong>🔹<code>main()</code> ফাংশন</strong></p>
+<pre><code class="language-go">func main() {
+	x := 18
+
+</code></pre>
+<p><code>x</code> হল একটি local variable to <code>main()</code> তাই <code>main()</code> ফাংশনের যেকোনো জায়গা থেকে access করা যাবে।</p>
+<p><strong>🔹 if block</strong></p>
+<pre><code class="language-go">p := 10
+</code></pre>
+<p><code>if</code> block এর ভেতরে declare করা হয়েছে, তাই block scope অনুযায়ী <code>p</code> শুধু <code>if</code> block এর ভিতরে accessible</p>
+<pre><code class="language-go">fmt.Println("I've ", q, " girlfriends")
+</code></pre>
+<ul>
+<li>এখানে <code>q</code> কোথাও declare করা হয়নি</li>
+<li>Go এখন <code>main()</code> বা global scope এ খুঁজে দেখবে - কিন্তু সেখানে নেই</li>
+<li>তাই Go কম্পাইলার <code>"undefined: q" error</code> দিবে</li>
+</ul>
+<h3 id="-ram-visualization-scope-অনুযায়ী-1"><a class="header" href="#-ram-visualization-scope-অনুযায়ী-1">🧠 RAM Visualization (Scope অনুযায়ী)</a></h3>
+<pre><code class="language-plaintext">
+             RAM (Execution Time)
++-------------------------------+
+| x = 18         ← main() scope |
++-------------------------------+
+        ↓ if block executed
++-------------------------------+
+| x = 18                        |
+| p = 10     ← if block scope   |
+| q = ??? ❌  (not found!)       |
++-------------------------------+
+</code></pre>
+<hr />
+<h4 id="-code-example---02"><a class="header" href="#-code-example---02">📄 Code Example - 02</a></h4>
+<pre><code class="language-go">
+func main() {
+	x := 18
+
+	if x &gt;= 18 {
+		p := 10
+		fmt.Println("I'm matured boy")
+		fmt.Println("I've ", p, " girlfriends")
+	}
+
+		fmt.Println("I've ", p, " girlfriends")
+
+}
+
+</code></pre>
+<h4 id="-scope-বিশলেষণ"><a class="header" href="#-scope-বিশলেষণ">🧱 Scope বিশ্লেষণ</a></h4>
+<p><strong>🔹 <code>x := 18</code></strong></p>
+<ul>
+<li><code>main()</code> ফাংশনের ভিতরে declare করা হয়েছে → তাই <code>x</code> এর scope হলো পুরো <code>main()</code> ফাংশনের ভিতর।</li>
+</ul>
+<p><strong>🔹 <code>if x &gt;= 18 { ... }</code></strong></p>
+<ul>
+<li>এই block এর ভিতরে <code>p := 10</code> declare করা হয়েছে।</li>
+<li>তাই <code>p</code> এর scope শুধুমাত্র এই <code>if</code> block এর ভিতরে।</li>
+</ul>
+<p><strong>🔹 <code>fmt.Println("I've ", p, " girlfriends")</code></strong></p>
+<ul>
+<li>এখানে <code>p</code> কে use করা হয়েছে তার নিজের scope এর মধ্যেই</li>
+</ul>
+<p><strong>🔹 if block এর বাহিরের <code>fmt.Println("I've ", p, " girlfriends")</code></strong></p>
+<ul>
+<li><code>p</code>, <code>if</code> block এর ভিতরে declare হয়েছে → তাই বাইরে access করা যাবে না</li>
+<li>❌ এখানে <code>p</code> এর scope এর বাইরে চলে গেছে</li>
+<li>তাই Go কম্পাইলার error দিবে: <code>undefined: p</code></li>
+</ul>
+<h3 id="-ram-visualization-scope-অনুযায়ী-2"><a class="header" href="#-ram-visualization-scope-অনুযায়ী-2">💾 RAM Visualization (Scope অনুযায়ী)</a></h3>
+<pre><code class="language-plaintext">
+                   RAM
++-----------------------------+
+| x = 18        ← main scope  |
++-----------------------------+
+        ⬇ if block শুরু হলে
++-----------------------------+
+| x = 18                      |
+| p = 10     ← if block only  |
++-----------------------------+
+        ⬇ if block শেষ
++-----------------------------+
+| x = 18                      |
+| p = ❌ (Not Found!)         |
++-----------------------------+
+
+
+</code></pre>
+<h2 id="-block-scope-এর-মূল-পয়েনটগুলো"><a class="header" href="#-block-scope-এর-মূল-পয়েনটগুলো">🧠 Block Scope এর মূল পয়েন্টগুলো</a></h2>
+<p>✅ Block আসলে memory তে নতুন জায়গা দখল করে।</p>
+<ul>
+<li>প্রতিবার কোনো block (যেমন: <code>if</code>, f<code>or</code>, <code>switch</code>, f<code>unction</code>) চালু হলে RAM এ সেই block এর জন্য অস্থায়ী জায়গা (temporary memory space) তৈরি হয়।</li>
+</ul>
+<p>✅ Block এর ভিতরে declare করা variable বাইরে থেকে access করা যাবে না।</p>
+<ul>
+<li>Variable শুধুমাত্র সেই block এর local scope এর ভিতরে কাজ করে।</li>
+</ul>
+<p>✅ Block শেষ হলেই সেই variable RAM থেকে মুছে যায় বা আর access করা যায় না।</p>
+<ul>
+<li>কারণ Go এর compiler বুঝে - variable টি তার scope এর বাইরে চলে গেছে।</li>
+</ul>
+<p>[<strong>Author:</strong> @nazma98
+<strong>Date:</strong> 2025-06-14
+<strong>Category:</strong> interview-qa/class-wise
+]</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="-class-16-golang-package-scope"><a class="header" href="#-class-16-golang-package-scope">🧠 Class 16: GoLang package scope</a></h1>
 <hr />
 <h2 id="১--package-কী"><a class="header" href="#১--package-কী">১.  Package কী?</a></h2>
@@ -1164,9 +1919,9 @@ var a = 10
 func main() {
     age := 30
 
-    if adfaage &gt; 18 {
+    if age &gt; 18 {
         a := 47        //  শুধু এই if ব্লকের ভিতরে গ্লোবাল `a` কে shadow করে
-    adf    fmt.Println(a) // ➜ 47
+        fmt.Println(a) // ➜ 47
     }
 
     fmt.Println(a)     // ➜ 10 (গ্লোবাল `a` প্রিন্ট করে)
@@ -1174,7 +1929,7 @@ func main() {
 </code></pre>
 <h2 id="-গুরুতবপূরণ-বিষয়"><a class="header" href="#-গুরুতবপূরণ-বিষয়">📌 গুরুত্বপূর্ণ বিষয়:</a></h2>
 <ul>
-<li>ভেরিয়েবলdi শ্যাডোয়িং হয় যখন লোকাল ভেরিয়েবলের নাম বাইরের স্কোপের ভেরিয়েবলের নামের সঙ্গে মিলে যায়।</li>
+<li>ভেরিয়েবল শ্যাডোয়িং হয় যখন লোকাল ভেরিয়েবলের নাম বাইরের স্কোপের ভেরিয়েবলের নামের সঙ্গে মিলে যায়।</li>
 <li>Go কোন Error দিবে না এটি শুধুমাত্র বর্তমান স্কোপে থাকা সবচেয়ে ভিতরের ভেরিয়েবলটি ব্যবহার করবে।</li>
 <li>Global <code>a</code> অপরিবর্তিত থাকে এবং if ব্লকের বাইরে প্রিন্ট হয়।</li>
 </ul>
@@ -1188,7 +1943,7 @@ func main() {
 <h3 id="-main-কল-হয়"><a class="header" href="#-main-কল-হয়">🚀 main() কল হয়</a></h3>
 <p>📚 <strong>Stack:</strong></p>
 <pre><code>┌────────────────────────────┐
-│ 🧩 main() stack frame    │
+│ 🧩 main() stack frame      │
 │   └── age = 30             │
 └────────────────────────────┘
 </code></pre>
@@ -1196,16 +1951,16 @@ func main() {
 <p>🧱 <strong>নতুন ব্লক স্কোপ শুরু</strong><br />
 📚 <strong>Stack:</strong></p>
 <pre><code>┌────────────────────────────┐
-│ 🧩 main() stack frame    │
+│ 🧩 main() stack frame      │
 │   └── age = 30             │
-│   🔸 a (shadow করা) = 47   │ ◄── global `a` কে shadow করে
+│   🔸 a (shadow করা) = 47   | ◄── global `a` কে shadow করে
 └────────────────────────────┘
 </code></pre>
 <p>🖨️ fmt.Println(a) ➜ <strong>output: 47 ✅</strong></p>
 <h3 id="-if-বলক-শেষ-shadow-করা-a-ডিলিট-হয়"><a class="header" href="#-if-বলক-শেষ-shadow-করা-a-ডিলিট-হয়">🔚 if ব্লক শেষ, shadow করা <code>a</code> ডিলিট হয়</a></h3>
 <p>📚 <strong>Stack:</strong></p>
 <pre><code>┌────────────────────────────┐
-│ 🧩 main() stack frame     │
+│ 🧩 main() stack frame      │
 │   └── age = 30             │
 └────────────────────────────┘
 </code></pre>
@@ -1218,12 +1973,12 @@ func main() {
 <h2 id="-ভিজযুযাল-সারাংশ"><a class="header" href="#-ভিজযুযাল-সারাংশ">📌 ভিজ্যুয়াল সারাংশ</a></h2>
 <ul>
 <li>গ্লোবাল variable (যেমন <code>a = 10</code>) <strong>ডাটা সেগমেন্টে</strong> থাকে।</li>
-<li>লোকাল variable (যেমন <code>age</code> বা shadow করে  <code>a</code>) <strong>স্ট্যাকে</strong> থাকে।</li>
+<li>লোকাল variable (যেমন <code>age</code> বা shadow করে <code>a</code>) <strong>স্ট্যাকে</strong> থাকে।</li>
 <li>নতুন scope (যেমন if, for, function block) এ ঢুকলে নতুন variable <strong>স্ট্যাকে</strong> পুশ হয়।</li>
 <li>ব্লক শেষ হলে shadow করা variable <strong>স্ট্যাক থেকে মুছে যায়</strong>।</li>
 <li>প্রোগ্রাম শেষ হলে স্ট্যাক ক্লিয়ার হয়, কিন্তু ডাটা সেগমেন্ট পুরো সময় জীবিত থাকে।</li>
 </ul>
-<p>[Author: @ifrunruhin12 @shahriar-em0n  Date: 2025-05-01 Category: interview-qa/class-wise ]</p>
+<p>[Author: @ifrunruhin12 @shahriar-em0n Date: 2025-05-01 Category: interview-qa/class-wise ]</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="-class-19-function-types-in-go"><a class="header" href="#-class-19-function-types-in-go">🧠 Class 19: Function Types in Go</a></h1>
 <h2 id="1-standard-function-নিরধারিত-function"><a class="header" href="#1-standard-function-নিরধারিত-function">1️⃣ Standard Function (নির্ধারিত function)</a></h2>
 <p>একটি সাধারণভাবে নামযুক্ত function যা <code>func</code> কীওয়ার্ড দিয়ে তৈরি করা হয়।</p>
@@ -2076,7 +2831,7 @@ func init() {
 <p>যখন কোনো ক্লোজার আর রেফারেন্স করা হয় না (যেমন <code>incr1</code> বা <code>incr2</code> স্কোপের বাইরে চলে যায়), তখন <code>গারবেজ কালেক্টর</code> সেই হিপ মেমোরি (যেমন <code>money</code>) মুছে ফেলে, যাতে অপ্রয়োজনীয় মেমোরি দখল না থাকে। অনেক ক্লোজার থাকলে কর্মদক্ষতা বজায় রাখতে এটা খুবই গুরুত্বপূর্ণ।</p>
 <p>GC স্বয়ংক্রিয়ভাবে ট্রিগার হয় এবং প্রোগ্রামের সাথে একযোগে চলে। এটি কার্যকরভাবে কাজ করার জন্য <strong>mark-and-sweep</strong> এবং <strong>concurrent garbage collection techniques</strong> ব্যবহার করে।</p>
 <hr />
-<h2 id="-সংকষেপে"><a class="header" href="#-সংকষেপে">🧠 সংক্ষেপে</a></h2>
+<h2 id="-সংকষেপে-1"><a class="header" href="#-সংকষেপে-1">🧠 সংক্ষেপে</a></h2>
 <ul>
 <li>ক্লোজার ভেরিয়েবলের অবস্থা ধরে রাখতে পারে 🔁</li>
 <li>এস্কেপ অ্যানালাইসিস নির্ধারণ করে কোন ভেরিয়েবল হিপে রাখা প্রয়োজন 📦</li>
@@ -2194,7 +2949,7 @@ book1 := Book{
 <li>তাই ম্যানুয়ালি <code>free()</code> করার দরকার নেই, Go নিজেই হিপের মেমোরি পরিচ্ছন্ন করে।</li>
 </ul>
 <hr />
-<h2 id="-সংকষেপে-1"><a class="header" href="#-সংকষেপে-1">🚀 সংক্ষেপে</a></h2>
+<h2 id="-সংকষেপে-2"><a class="header" href="#-সংকষেপে-2">🚀 সংক্ষেপে</a></h2>
 <ul>
 <li><code>type User struct {...}</code> হলো টাইপের তথ্য → কোড সেগমেন্ট-এ থাকে।</li>
 <li><code>user1 := User{...}</code> হলো রানটাইম ডেটা → স্ট্যাক বা হিপের রাখা হয় ব্যবহার অনুযায়ী।</li>
@@ -2587,140 +3342,140 @@ func main() {
 <strong>Date:</strong> 2025-05-01 - 2025-05-17
 <strong>Category:</strong> interview-qa/class-wise
 ]</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="-কলাস-৩১-go-সলাইস-slice"><a class="header" href="#-কলাস-৩১-go-সলাইস-slice">📚 ক্লাস ৩১: Go স্লাইস (Slice)</a></h1>
-<h2 id="-মূল-বিষযসমূহ"><a class="header" href="#-মূল-বিষযসমূহ">🚀 মূল বিষয়সমূহ</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="-class-31--go-slice"><a class="header" href="#-class-31--go-slice">📚 Class 31 : Go Slice</a></h1>
+<h2 id="-main-topics"><a class="header" href="#-main-topics">🚀 Main Topics</a></h2>
 <ul>
-<li>স্লাইস কী?</li>
-<li>একটি স্লাইসে কয়টি অংশ থাকে?</li>
-<li>স্লাইসের Pointer, Length, এবং Capacity নির্ণয় করা</li>
-<li>বিদ্যমান Array থেকে স্লাইস তৈরি</li>
+<li>Slice কী?</li>
+<li>একটি Slice এ কয়টি অংশ থাকে?</li>
+<li>Slice এর Pointer, Length, এবং Capacity নির্ণয় করা</li>
+<li>বিদ্যমান Array থেকে Slice তৈরি</li>
 <li>বিদ্যমান Slice থেকে নতুন Slice তৈরি</li>
 <li>Slice Literal (সরাসরি ঘোষণা)</li>
 <li><code>make()</code> দিয়ে Slice তৈরি (শুধু length)</li>
 <li><code>make()</code> দিয়ে Slice তৈরি (length এবং capacity)</li>
 <li>খালি বা Nil Slice তৈরি</li>
-<li>স্লাইসে নতুন উপাদান যোগ করা (append)</li>
+<li>Slice এ নতুন element যোগ করা (append)</li>
 <li><code>append</code> করার সময় অভ্যন্তরীণ প্রক্রিয়া (Heap এবং Underlying Array)</li>
-<li>Underlying Array কীভাবে গতিশীলভাবে বাড়ে</li>
+<li>Underlying Array কীভাবে dynamic ভাবে বাড়ে</li>
 <li>কিছু মজার উদাহরণ এবং ইন্টারভিউ প্রশ্ন</li>
-<li>ভ্যারিয়েডিক ফাংশন (Variadic Functions)</li>
+<li>Variadic Functions</li>
 </ul>
 <hr />
-<h1 id="-১-সলাইস-কী"><a class="header" href="#-১-সলাইস-কী">🧠 ১. স্লাইস কী?</a></h1>
+<h1 id="-১-slice-কী"><a class="header" href="#-১-slice-কী">🧠 ১. Slice কী?</a></h1>
 <ul>
-<li><strong>স্লাইস</strong> হলো Go এর একটি ফ্লেক্সিবল ডেটা স্ট্রাকচার।</li>
+<li><strong>Slice</strong> হলো Go এর একটি flexible data structure।</li>
 <li>এটি মূলত array এর উপরে নির্মিত একটি <strong>dynamic view</strong>।</li>
 <li>array এর মত হলেও, slice এর সাইজ পরিবর্তন করা যায় (বড় বা ছোট করা যায়)।</li>
 </ul>
 <p><strong>মূল পয়েন্ট:</strong></p>
 <ul>
-<li>স্লাইস array নয়।</li>
-<li>স্লাইস array এর উপরে তৈরি হয়।</li>
+<li>Slice, array নয়।</li>
+<li>Slice, array এর উপরে তৈরি হয়।</li>
 </ul>
 <hr />
-<h1 id="-২-একটি-সলাইসের-কয়টি-অংশ-থাকে"><a class="header" href="#-২-একটি-সলাইসের-কয়টি-অংশ-থাকে">🔥 ২. একটি স্লাইসের কয়টি অংশ থাকে?</a></h1>
-<p>স্লাইস মূলত একটি <strong>struct</strong> যা তিনটি অংশ নিয়ে গঠিত:</p>
+<h1 id="-২-একটি-slice-এর-কয়টি-অংশ-থাকে"><a class="header" href="#-২-একটি-slice-এর-কয়টি-অংশ-থাকে">🔥 ২. একটি Slice এর কয়টি অংশ থাকে?</a></h1>
+<p>Slice মূলত একটি <strong>struct</strong> যা তিনটি অংশ নিয়ে গঠিত:</p>
 <pre><code class="language-go">struct Slice {
-    pointer *T // underlying array কে পয়েন্ট করে
-    length  int // বর্তমান elements সংখ্যা
-    capacity int // সর্বোচ্চ elements সংখ্যা (রিয়ালোকেশন পর্যন্ত)
+    pointer *T // points underlying array
+    length  int // current elements number
+    capacity int // maximum elements (until reallocation)
 	}
 </code></pre>
-<p>স্লাইসকে মূলত একটি array এর "উইন্ডো" হিসেবে ভাবা যেতে পারে।</p>
+<p>Slice কে মূলত একটি array এর "window" হিসেবে ভাবা যেতে পারে।</p>
 <hr />
-<h1 id="-৩-পযেনটার-লেনথ-এবং-কযাপাসিটি-নিরধারণ-করার-উপায"><a class="header" href="#-৩-পযেনটার-লেনথ-এবং-কযাপাসিটি-নিরধারণ-করার-উপায">🕵️‍♂️ ৩. পয়েন্টার, লেন্থ এবং ক্যাপাসিটি নির্ধারণ করার উপায়</a></h1>
-<p>নিম্নোক্ত built-in ফাংশন ব্যবহার করে স্লাইসের লেন্থ এবং ক্যাপাসিটি বের করা যায়:</p>
+<h1 id="-৩-pointer-length-এবং-capacity-নিরধারণ-করার-উপায"><a class="header" href="#-৩-pointer-length-এবং-capacity-নিরধারণ-করার-উপায">🕵️‍♂️ ৩. Pointer, length এবং capacity নির্ধারণ করার উপায়</a></h1>
+<p>নিম্নোক্ত built-in ফাংশন ব্যবহার করে Slice এর length এবং capacity বের করা যায়:</p>
 <ul>
 <li><code>len(slice)</code> ➡️ Length</li>
 <li><code>cap(slice)</code> ➡️ Capacity</li>
 </ul>
 <p>উদাহরণ:</p>
-<pre><code class="language-go">s := arr[1:4] // ইনডেক্স 1 থেকে 3
+<pre><code class="language-go">s := arr[1:4] // index 1 to 3
 fmt.Println(len(s)) // 3
-fmt.Println(cap(s)) //  ইনডেক্স 1 এর পর থেকে অ্যারের শেষ পর্যন্ত
+fmt.Println(cap(s)) //  index 1 to end of the array
 </code></pre>
 <hr />
-<h1 id="-৪-অযারে-থেকে-সলাইস-তৈরি-করা"><a class="header" href="#-৪-অযারে-থেকে-সলাইস-তৈরি-করা">🏗 ৪. অ্যারে থেকে স্লাইস তৈরি করা</a></h1>
+<h1 id="-৪-array-থেকে-slice-তৈরি-করা"><a class="header" href="#-৪-array-থেকে-slice-তৈরি-করা">🏗 ৪. Array থেকে Slice তৈরি করা</a></h1>
 <pre><code class="language-go">arr := [6]string{"This", "is", "a", "Go", "interview", "Questions"}
 s := arr[1:4] // slice ["is", "a", "Go"]
 </code></pre>
 <ul>
-<li><code>pointer</code>: <code>arr</code> এর 1 নম্বর ইনডেক্স নির্দেশ করে</li>
-<li><code>length</code>: 3 (ইনডেক্স 1 থেকে 3)</li>
-<li><code>capacity</code>: 5 (ইনডেক্স 1 থেকে 5)</li>
+<li><code>pointer</code>: <code>arr</code> এর index 1 নির্দেশ করে</li>
+<li><code>length</code>: 3 (index 1 to 3)</li>
+<li><code>capacity</code>: 5 (index 1 to 5)</li>
 </ul>
 <hr />
-<h1 id="-৫-সলাইস-থেকে-নতুন-সলাইস-তৈরি"><a class="header" href="#-৫-সলাইস-থেকে-নতুন-সলাইস-তৈরি">🔄 ৫. স্লাইস থেকে নতুন স্লাইস তৈরি</a></h1>
+<h1 id="-৫-slice-থেকে-নতুন-slice-তৈরি"><a class="header" href="#-৫-slice-থেকে-নতুন-slice-তৈরি">🔄 ৫. Slice থেকে নতুন Slice তৈরি</a></h1>
 <pre><code class="language-go">s1 := s[1:2] // Slice "a"
 </code></pre>
 <ul>
-<li><code>s1</code> স্লাইসটি একই অ্যারের একটি <strong>view</strong>!</li>
+<li><code>s1</code> Slice টি একই Array এর একটি <strong>view</strong>!</li>
 <li><code>s1</code> পরিবর্তন করলে <code>arr</code> এর মানও পরিবর্তিত হতে পারে।</li>
 </ul>
 <hr />
-<h1 id="-6-সলাইস-লিটারেল"><a class="header" href="#-6-সলাইস-লিটারেল">✍️ 6. স্লাইস লিটারেল</a></h1>
-<p>একটি স্লাইস তৈরি করতে সরাসরি মান ব্যবহার করা যায়, আলাদা করে অ্যারে তৈরি করার প্রয়োজন নেই।</p>
+<h1 id="-6-slice-literal"><a class="header" href="#-6-slice-literal">✍️ 6. Slice Literal</a></h1>
+<p>একটি Slice তৈরি করতে সরাসরি মান ব্যবহার করা যায়, আলাদা করে Array তৈরি করার প্রয়োজন নেই।</p>
 <pre><code class="language-go">s2 := []int{3, 4, 7}
 </code></pre>
-<h2 id="এখানে-go-সবযংকরিযভাবে-একটি-underlying-অযারে-তৈরি-করে"><a class="header" href="#এখানে-go-সবযংকরিযভাবে-একটি-underlying-অযারে-তৈরি-করে">এখানে Go স্বয়ংক্রিয়ভাবে একটি underlying অ্যারে তৈরি করে।</a></h2>
-<h1 id="-৭-make-দিযে-একটি-সলাইস-তৈরি-করা"><a class="header" href="#-৭-make-দিযে-একটি-সলাইস-তৈরি-করা">🏗️ ৭. make() দিয়ে একটি স্লাইস তৈরি করা</a></h1>
+<h2 id="এখানে-go-automatically-একটি-underlying-array-তৈরি-করে"><a class="header" href="#এখানে-go-automatically-একটি-underlying-array-তৈরি-করে">এখানে Go automatically একটি underlying Array তৈরি করে।</a></h2>
+<h1 id="-৭-make-দিযে-একটি-slice-তৈরি-করা"><a class="header" href="#-৭-make-দিযে-একটি-slice-তৈরি-করা">🏗️ ৭. make() দিয়ে একটি Slice তৈরি করা</a></h1>
 <pre><code class="language-go">s3 := make([]int, 3)
 </code></pre>
 <ul>
-<li><code>make()</code> দিয়ে ৩টি শূন্য মান (zero) সহ একটি স্লাইস তৈরি করে। অর্থাৎ, ৩টি ফাঁকা এলিমেন্ট থাকবে।</li>
+<li><code>make()</code> দিয়ে ৩টি শূন্য মান (zero) সহ একটি Slice তৈরি করে। অর্থাৎ, ৩টি empty element থাকবে।</li>
 <li><code>len = 3</code>, <code>cap = 3</code></li>
 </ul>
 <hr />
-<h1 id="-৮-make-দিযে-একটি-সলাইস-তৈরি-করা-length-এবং-capacity"><a class="header" href="#-৮-make-দিযে-একটি-সলাইস-তৈরি-করা-length-এবং-capacity">🏗️🏗️ ৮. <code>make()</code> দিয়ে একটি স্লাইস তৈরি করা (length এবং capacity)</a></h1>
+<h1 id="-৮-make-দিযে-একটি-slice-তৈরি-করা-length-এবং-capacity"><a class="header" href="#-৮-make-দিযে-একটি-slice-তৈরি-করা-length-এবং-capacity">🏗️🏗️ ৮. <code>make()</code> দিয়ে একটি Slice তৈরি করা (length এবং capacity)</a></h1>
 <pre><code class="language-go">s4 := make([]int, 3, 5)
 </code></pre>
 <ul>
-<li><code>len = 3</code>, কিন্তু ক্যাপাসিটি <code>cap = 5</code> পর্যন্ত হতে পারে রিঅ্যালোকেশন এর আগ পর্যন্ত</li>
+<li><code>len = 3</code>, কিন্তু capacity <code>cap = 5</code> পর্যন্ত হতে পারে reallocation এর আগ পর্যন্ত</li>
 </ul>
 <hr />
-<h1 id="-9-শুনয-সলাইস-তৈরি-empty--nil-slice"><a class="header" href="#-9-শুনয-সলাইস-তৈরি-empty--nil-slice">🕳 9. শুন্য স্লাইস তৈরি (Empty / Nil Slice)</a></h1>
+<h1 id="-9-empty--nil-slice-তৈরি"><a class="header" href="#-9-empty--nil-slice-তৈরি">🕳 9. Empty / Nil Slice তৈরি</a></h1>
 <pre><code class="language-go">var s5 []int
 </code></pre>
 <ul>
 <li><code>len = 0</code>, <code>cap = 0</code></li>
-<li>Still valid! এতে নতুন এলিমেন্ট যোগ (append) করা যাবে।</li>
+<li>Still valid! এতে নতুন element যোগ (append) করা যাবে।</li>
 </ul>
 <hr />
-<h1 id="-১০-সলাইসে-নতুন-এলিমেনট-যোগ--এপেনড-করা"><a class="header" href="#-১০-সলাইসে-নতুন-এলিমেনট-যোগ--এপেনড-করা">➕ ১০. স্লাইসে নতুন এলিমেন্ট যোগ / এপেন্ড করা</a></h1>
+<h1 id="-১০-slice-এ-নতুন-element-append-করা"><a class="header" href="#-১০-slice-এ-নতুন-element-append-করা">➕ ১০. Slice এ নতুন element append করা</a></h1>
 <pre><code class="language-go">s6 := append(s6, 1)
 </code></pre>
 <ul>
-<li>Go নিজে থেকে underlying অ্যারে বড় করে।</li>
-<li><em>অনেক বড় অ্যারে</em> তৈরি এবং আগের এলিমেন্টগুলো কপি করার কাজও করে থাকে।</li>
+<li>Go নিজে থেকে underlying Array বড় করে।</li>
+<li><em>অনেক বড় Array</em> তৈরি এবং আগের element গুলো copy করার কাজও করে থাকে।</li>
 </ul>
 <hr />
-<h1 id="-১১-এপেনড-করার-সময়-আসলে-কী-হয়"><a class="header" href="#-১১-এপেনড-করার-সময়-আসলে-কী-হয়">🧬 ১১. এপেন্ড করার সময় আসলে কী হয়?</a></h1>
-<p>যখন একটি স্লাইস এর capacity পূর্ণ হয়:</p>
+<h1 id="-১১-append-করার-সময়-আসলে-কী-হয়"><a class="header" href="#-১১-append-করার-সময়-আসলে-কী-হয়">🧬 ১১. append করার সময় আসলে কী হয়?</a></h1>
+<p>যখন একটি Slice এর capacity পূর্ণ হয়:</p>
 <ul>
-<li>একটি <strong>নতুন অ্যারে</strong> (সাধারণত দ্বিগুণ সাইজের) তৈরি করা হয়।</li>
-<li>আগের অ্যারের সমস্ত elements নতুন অ্যারেতে কপি করা হয়।</li>
+<li>একটি <strong>নতুন Array</strong> (সাধারণত দ্বিগুণ সাইজের) তৈরি করা হয়।</li>
+<li>আগের Array এর সমস্ত elements নতুন Array তে কপি করা হয়।</li>
 </ul>
-<p>এ কারণেই কখনও কখনও অ্যাপেন্ড করা দ্রুত মনে হয় এবং কখনও বড় মেমরি অপারেশন তৈরি করতে পারে।</p>
+<p>এ কারণেই কখনও কখনও append করা দ্রুত মনে হয় এবং কখনও বড় মেমরি অপারেশন তৈরি করতে পারে।</p>
 <hr />
 <h1 id="-১২-underlying-array-কিভাবে-বৃদধি-পায"><a class="header" href="#-১২-underlying-array-কিভাবে-বৃদধি-পায">📈 ১২. Underlying Array কিভাবে বৃদ্ধি পায়:</a></h1>
-<p><strong>যে প্যাটার্নে ক্যাপাসিটি পায় (Capacity Growth Pattern):</strong> (simplified)</p>
+<p><strong>যে প্যাটার্নে capacity পায় (Capacity Growth Pattern):</strong> (simplified)</p>
 <ul>
 <li>Cap 1 ➡️ 2 ➡️ 4 ➡️ 8 ➡️ 16 ➡️ ...</li>
 </ul>
-<p>এটি একটি অপ্টিমাইজেশন কৌশল যা নিশ্চিত করে যেন অ্যাপেন্ড অপারেশনগুলো গড়ে O(1) সময়ে সম্পন্ন হয়।</p>
+<p>এটি একটি optimization technique যা নিশ্চিত করে যেন append অপারেশনগুলো গড়ে <code>O(1)</code> সময়ে সম্পন্ন হয়।</p>
 <hr />
-<h1 id="go-slice-বৃদধি-len-এবং-cap-এর-ডাযনামিকস-বোঝা"><a class="header" href="#go-slice-বৃদধি-len-এবং-cap-এর-ডাযনামিকস-বোঝা">Go Slice বৃদ্ধি: <code>len</code> এবং <code>cap</code> এর ডায়নামিক্স বোঝা</a></h1>
-<p>Go স্লাইস একটি শক্তিশালী এবং ফ্লেক্সিবল ডেটা স্ট্রাকচার, যা ডায়নামিক অ্যারের মতো কাজ করে। এর একটি মূল বৈশিষ্ট্য হলো, যখন নতুন এলিমেন্ট যোগ করা হয়, তখন স্লাইস নিজে নিজেই বৃদ্ধি পায়। স্লাইস কীভাবে এবং কখন বৃদ্ধি পায়, আর এর মেমরি অ্যালোকেশনের পদ্ধতি বুঝলে অনেক ইফিশিয়েন্ট প্রোগ্রাম ডিজাইন করা সম্ভব।</p>
-<p>এখন আমরা Go স্লাইসের বৃদ্ধির পদ্ধতি বিশ্লেষণ করব:</p>
+<h1 id="go-slice-বৃদধি-len-এবং-cap-এর-dynamics-বোঝা"><a class="header" href="#go-slice-বৃদধি-len-এবং-cap-এর-dynamics-বোঝা">Go Slice বৃদ্ধি: <code>len</code> এবং <code>cap</code> এর dynamics বোঝা</a></h1>
+<p>Go Slice একটি শক্তিশালী এবং flexible data structure, যা dynamic Array এর মতো কাজ করে। এর একটি মূল বৈশিষ্ট্য হলো, যখন নতুন element যোগ করা হয়, তখন Slice নিজে নিজেই বৃদ্ধি পায়। Slice কীভাবে এবং কখন বৃদ্ধি পায়, আর এর মেমরি অ্যালোকেশনের পদ্ধতি বুঝলে অনেক efficient program design করা সম্ভব।</p>
+<p>এখন আমরা Go Slice এর বৃদ্ধির পদ্ধতি বিশ্লেষণ করব:</p>
 <ul>
-<li>যদি স্লাইসের <code>len</code> এবং <code>cap</code> <code>1024</code>-এর কম হয়, তাহলে এটি সাধারণত দ্বিগুণ (2x) বৃদ্ধি পায়।</li>
+<li>যদি Slice এর <code>len</code> এবং <code>cap</code> <code>1024</code>-এর কম হয়, তাহলে এটি সাধারণত দ্বিগুণ (2x) বৃদ্ধি পায়।</li>
 <li><code>len</code> এবং <code>cap</code>, <code>1024</code> ছাড়িয়ে গেলে, এটি প্রায় 25% হারে বৃদ্ধি পায়।</li>
-<li>স্লাইস কেন নির্দিষ্ট পরিমাণে (যেমন 1024 থেকে 1280) না বাড়িয়ে বড় ব্লকে (যেমন 1536) বাড়ে, সেটিও ব্যাখ্যা করা হবে।</li>
+<li>Slice কেন নির্দিষ্ট পরিমাণে (যেমন 1024 থেকে 1280) না বাড়িয়ে বড় ব্লকে (যেমন 1536) বাড়ে, সেটিও ব্যাখ্যা করা হবে।</li>
 </ul>
-<h2 id="সলাইস-বৃদধির-ধারণা-slice-growth-overview"><a class="header" href="#সলাইস-বৃদধির-ধারণা-slice-growth-overview">স্লাইস বৃদ্ধির ধারণা (Slice Growth Overview)</a></h2>
-<p>Go তে slice মূলত array এর উপরে ভিত্তি করে কাজ করে। যখন একটি slice-এ নতুন এলিমেন্ট অ্যাপেন্ড করা হয়, তখন প্রয়োজনে Go একটি বড় array তৈরি করে এবং পুরানো এলিমেন্টগুলো তাতে কপি করে। এই প্রসেসটি নির্ভর করে Go কিভাবে নতুন capacity নির্ধারণ করে এবং মেমরি বরাদ্দ করে।</p>
-<h3 id="১২১-ছোট-সলাইসের-কষেতরে-দবিগুণ-বৃদধি-lencap--1024"><a class="header" href="#১২১-ছোট-সলাইসের-কষেতরে-দবিগুণ-বৃদধি-lencap--1024">১২.১. ছোট স্লাইসের ক্ষেত্রে দ্বিগুণ বৃদ্ধি (<code>len(cap) &lt; 1024</code>)</a></h3>
-<p>যখন slice ছোট থাকে (অর্থাৎ, এর <code>len</code> এবং <code>cap</code> দুটোই 1024 এর কম), তখন Go সাধারণত capacity <strong>দ্বিগুণ</strong> করে। এর মানে, যখন slice এ একটি এলিমেন্ট যোগ করা হয় এবং নতুন মেমরি প্রয়োজন হয়, তখন Go আগের capacity এর দ্বিগুণ আকারের একটি নতুন array তৈরি করে এবং পুরানো এলিমেন্টগুলো সেখানে কপি করে। স্লাইসের <code>len</code> ১ বাড়বে, কিন্তু <code>cap</code> দ্বিগুণ হবে।</p>
+<h2 id="slice-growth-overview"><a class="header" href="#slice-growth-overview">Slice Growth Overview</a></h2>
+<p>Go তে slice মূলত array এর উপরে ভিত্তি করে কাজ করে। যখন একটি slice এ নতুন element append করা হয়, তখন প্রয়োজনে Go একটি বড় array তৈরি করে এবং পুরানো element গুলো তাতে কপি করে। এই প্রসেসটি নির্ভর করে Go কিভাবে নতুন capacity নির্ধারণ করে এবং মেমরি allocate করে।</p>
+<h3 id="১২১-ছোট-slice-এর-কষেতরে-দবিগুণ-বৃদধি-lencap--1024"><a class="header" href="#১২১-ছোট-slice-এর-কষেতরে-দবিগুণ-বৃদধি-lencap--1024">১২.১. ছোট Slice এর ক্ষেত্রে দ্বিগুণ বৃদ্ধি (<code>len(cap) &lt; 1024</code>)</a></h3>
+<p>যখন slice ছোট থাকে (অর্থাৎ, এর <code>len</code> এবং <code>cap</code> দুটোই 1024 এর কম), তখন Go সাধারণত capacity <strong>দ্বিগুণ</strong> করে। এর মানে, যখন slice এ একটি element যোগ করা হয় এবং নতুন মেমরি প্রয়োজন হয়, তখন Go আগের capacity এর দ্বিগুণ আকারের একটি নতুন array তৈরি করে এবং পুরানো element গুলো সেখানে কপি করে। Slice এর <code>len</code> ১ বাড়বে, কিন্তু <code>cap</code> দ্বিগুণ হবে।</p>
 <h4 id="উদাহরণ"><a class="header" href="#উদাহরণ">উদাহরণ:</a></h4>
 <pre><code class="language-go">s := []int{1, 2, 3}
 fmt.Println(len(s), cap(s)) // len: 3, cap: 3
@@ -2733,11 +3488,11 @@ fmt.Println(len(s), cap(s)) // len: 5, cap: 6
 </code></pre>
 <ul>
 <li>প্রথমে, slice এর <code>len</code> ৩ এবং <code>cap</code> ৩ থাকে।</li>
-<li>চতুর্থ এলিমেন্ট যোগ করার সময়, slice এর capacity ৩ থেকে দ্বিগুণ হয়ে ৬ হয়ে যায়।</li>
-<li>পরবর্তী অ্যাপেন্ডে, slice-এর capacity ৬ ই থাকবে কারণ <code>len</code> &lt; <code>cap</code>।</li>
+<li>চতুর্থ element যোগ করার সময়, slice এর capacity ৩ থেকে দ্বিগুণ হয়ে ৬ হয়ে যায়।</li>
+<li>পরবর্তী অ্যাপেন্ডে, slice এর capacity ৬ ই থাকবে কারণ <code>len</code> &lt; <code>cap</code>।</li>
 </ul>
-<h3 id="১২২-বড-সলাইসের-কষেতরে-২৫-বৃদধি-lencap--1024"><a class="header" href="#১২২-বড-সলাইসের-কষেতরে-২৫-বৃদধি-lencap--1024">১২.২. বড় স্লাইসের ক্ষেত্রে ২৫% বৃদ্ধি (<code>len(cap) &gt;= 1024</code>)</a></h3>
-<p>যখন slice-এর <code>len</code> এবং <code>cap</code> 1024 বা তার বেশি হয়, তখন Go দ্বিগুণের পরিবর্তে বর্তমান capacity এর <strong>২৫%</strong> বৃদ্ধি করে। এই কৌশলটি ঘন ঘন মেমরি পুনর্বণ্টন (reallocation) এড়াতে এবং অপ্রয়োজনীয় মেমরি অপচয় কমাতে সহায়তা করে।</p>
+<h3 id="১২২-বড-slice-এর-কষেতরে-২৫-বৃদধি-lencap--1024"><a class="header" href="#১২২-বড-slice-এর-কষেতরে-২৫-বৃদধি-lencap--1024">১২.২. বড় Slice এর ক্ষেত্রে ২৫% বৃদ্ধি (<code>len(cap) &gt;= 1024</code>)</a></h3>
+<p>যখন slice এর <code>len</code> এবং <code>cap</code> 1024 বা তার বেশি হয়, তখন Go দ্বিগুণের পরিবর্তে বর্তমান capacity এর <strong>২৫%</strong> বৃদ্ধি করে। এই কৌশলটি ঘন ঘন মেমরি reallocation এড়াতে এবং অপ্রয়োজনীয় মেমরি অপচয় কমাতে সহায়তা করে।</p>
 <h4 id="উদাহরণ-1"><a class="header" href="#উদাহরণ-1">উদাহরণ:</a></h4>
 <pre><code class="language-go">s := make([]int, 1024)  // len: 1024, cap: 1024
 fmt.Println(len(s), cap(s))
@@ -2750,15 +3505,15 @@ fmt.Println(len(s), cap(s))
 </code></pre>
 <ul>
 <li>শুরুতে, আমরা length এবং capacity 1024 সহ একটি slice তৈরি করি।</li>
-<li>পরের এলিমেন্ট অ্যাপেন্ড করলে slice এর capacity 1024 থেকে 1280 হয়, যা 1024 এর সাথে ২৫% যোগ করে পাওয়া যায়।</li>
-<li>আরেকটি অ্যাপেন্ড করলে capacity 1600 হয় (1280 এর সাথে ২৫% যোগ করে)।</li>
+<li>পরের element append করলে slice এর capacity 1024 থেকে 1280 হয়, যা 1024 এর সাথে ২৫% যোগ করে পাওয়া যায়।</li>
+<li>আরেকটি element append করলে capacity 1600 হয় (1280 এর সাথে ২৫% যোগ করে)।</li>
 </ul>
-<h3 id="১২৩-মেমরি-বলকের-ভূমিকা-যেমন-1536-কষমতার-সলাইস"><a class="header" href="#১২৩-মেমরি-বলকের-ভূমিকা-যেমন-1536-কষমতার-সলাইস">১২.৩. মেমরি ব্লকের ভূমিকা (যেমন, 1536 ক্ষমতার স্লাইস)</a></h3>
-<p>যখন slice-এর <code>len</code> এবং <code>cap</code> 1024 এর কাছাকাছি বা তার বেশি হয়, তখন Go সর্বদা নিখুঁত গণনা অনুযায়ী মেমরি বরাদ্দ করে না। এর পরিবর্তে এটি সিস্টেম মেমরি বরাদ্দের ধরণ অনুযায়ী <strong>অপ্টিমাল মেমরি ব্লক</strong> ব্যবহার করে।</p>
-<p>উদাহরণস্বরূপ, যদি একটি slice-এর capacity 1024 এর কাছাকাছি থাকে, পরবর্তী বরাদ্দ সরাসরি 256 যোগ করে 1280 না হয়ে, এর থেকে বড় 1536 এর মতো ব্লকে হতে পারে। এটি বড় মেমরি ব্লকের জন্য আরও কার্যকর মেমরি ব্যবহারে সহায়তা করে।</p>
+<h3 id="১২৩-মেমরি-বলকের-ভূমিকা-যেমন-1536-কষমতার-slice"><a class="header" href="#১২৩-মেমরি-বলকের-ভূমিকা-যেমন-1536-কষমতার-slice">১২.৩. মেমরি ব্লকের ভূমিকা (যেমন, 1536 ক্ষমতার Slice)</a></h3>
+<p>যখন slice এর <code>len</code> এবং <code>cap</code> 1024 এর কাছাকাছি বা তার বেশি হয়, তখন Go সর্বদা নিখুঁত গণনা অনুযায়ী মেমরি বরাদ্দ করে না। এর পরিবর্তে এটি সিস্টেম মেমরি বরাদ্দের ধরণ অনুযায়ী <strong>Optimal Memory Block</strong> ব্যবহার করে।</p>
+<p>উদাহরণস্বরূপ, যদি একটি slice এর capacity 1024 এর কাছাকাছি থাকে, পরবর্তী বরাদ্দ সরাসরি 256 যোগ করে 1280 না হয়ে, এর থেকে বড় 1536 এর মতো ব্লকে হতে পারে। এটি বড় মেমরি ব্লকের জন্য আরও কার্যকর মেমরি ব্যবহারে সহায়তা করে।</p>
 <h4 id="কেন-1536-এর-পরিবরতে-1280"><a class="header" href="#কেন-1536-এর-পরিবরতে-1280">কেন 1536 এর পরিবর্তে 1280?</a></h4>
-<p>এটি মূলত <strong>হার্ডওয়্যার মেমরি অ্যালাইনমেন্ট</strong> এর উপর নির্ভর করে। 1536 সংখ্যাটি বেছে নেওয়া হয় কারণ এটি সাধারণত 2-এর গুণিতক আকারের মেমরি ব্লকের সাথে ভালোভাবে মিলে যায় এবং আধুনিক CPU এবং মেমরি সিস্টেমের জন্য অপ্টিমাইজ করা। মেমরি অ্যালোকেশন সাধারণত সিস্টেমের মেমরি পেজ সাইজ বা ক্যাশ লাইনের সাথে সামঞ্জস্য রেখে বড় ব্লকে করা হয়, যা মেমরি অ্যাক্সেসকে আরও ইফিশিয়েন্ট করে তোলে।</p>
-<h4 id="উদাহরণ-মেমরি-অযালাইনমেনট"><a class="header" href="#উদাহরণ-মেমরি-অযালাইনমেনট">উদাহরণ (মেমরি অ্যালাইনমেন্ট)::</a></h4>
+<p>এটি মূলত <strong>Hardware Memory Alignment</strong> এর উপর নির্ভর করে। 1536 সংখ্যাটি বেছে নেওয়া হয় কারণ এটি সাধারণত 2-এর গুণিতক আকারের মেমরি ব্লকের সাথে ভালোভাবে মিলে যায় এবং আধুনিক CPU এবং মেমরি সিস্টেমের জন্য optimize করা। মেমরি অ্যালোকেশন সাধারণত সিস্টেমের memory page size বা cache line এর সাথে সামঞ্জস্য রেখে বড় ব্লকে করা হয়, যা মেমরি অ্যাক্সেসকে আরও ইফিশিয়েন্ট করে তোলে।</p>
+<h4 id="উদাহরণ-memory-alignment"><a class="header" href="#উদাহরণ-memory-alignment">উদাহরণ (memory alignment):</a></h4>
 <pre><code class="language-go">s := make([]int, 1024) // len: 1024, cap: 1024
 fmt.Println(len(s), cap(s)) // 1024, 1024
 
@@ -2769,13 +3524,13 @@ fmt.Println(len(s), cap(s)) // 1025, 1536
 <li>1024 থেকে 1536 এ capacity বৃদ্ধি হয়, কারণ 1536 একটি বেটার মেমরি ব্লক যা সিস্টেমের ইফিশিয়েন্ট মেমরি অ্যালোকেশন করে।</li>
 </ul>
 <h3 id="১২৪-কেন-এমন-হয"><a class="header" href="#১২৪-কেন-এমন-হয">১২.৪. কেন এমন হয়?</a></h3>
-<p><strong>ইফিশিয়েন্সি বিবেচনায় (efficiency considerations)</strong> Go সরাসরি 256 করে বৃদ্ধি করে না (যেমন আমরা মনে করি 1024 থেকে 1280)। কারণ এটি ইফিশিয়েন্সি বৃদ্ধির জন্য গুরুত্বপূর্ণ। এই অ্যালোকেশন স্ট্র্যাটেজির ফলে ঘন ঘন রি-অ্যালোকেশন এড়ানো যায় এবং অপ্রয়োজনীয় মেমরি অপচয় কমে যায়। বরং বড় ব্লকে (1536) মেমরি বরাদ্দ করে Go রানটাইম নিশ্চিত করে স্লাইসে পর্যাপ্ত capacity আছে আরও element এপেন্ড করার জন্য এবং খুব তাড়াতাড়ি স্লাইসকে বাড়াতে হবে না।</p>
-<p>এর ফলে আরও ভালো পারফরম্যান্স পাওয়া যায়, বিশেষ করে যখন slice দ্রুত বৃদ্ধি পায়।</p>
-<h2 id="উপসংহার"><a class="header" href="#উপসংহার">উপসংহার</a></h2>
-<p>Go-এর slice বৃদ্ধি কৌশল অনেক ইফিশিয়েন্ট কোড লিখা সম্ভব। ছোট সাইজের slice এর ক্ষেত্রে, Go capacity দ্বিগুণ করে যাতে কম রি-অ্যালোকেশনে আরও এলিমেন্ট ধারণ করতে পারে। বড় slice (1024 এবং এর বেশি) হলে, এটি capacity ২৫% বৃদ্ধি করে এবং মাঝে মাঝে অপ্টিমাল মেমরি ব্লকের সাথে সামঞ্জস্য রাখে। এই পদ্ধতিটি slice কে দ্রুত এবং মেমরি সাশ্রয়ী করে তোলে।</p>
+<p><strong>efficiency considerations</strong> Go সরাসরি 256 করে বৃদ্ধি করে না (যেমন আমরা মনে করি 1024 থেকে 1280)। কারণ এটি ইফিশিয়েন্সি বৃদ্ধির জন্য গুরুত্বপূর্ণ। এই অ্যালোকেশন স্ট্র্যাটেজির ফলে ঘন ঘন রি-অ্যালোকেশন এড়ানো যায় এবং অপ্রয়োজনীয় মেমরি অপচয় কমে যায়। বরং বড় ব্লকে (1536) মেমরি বরাদ্দ করে Go রানটাইম নিশ্চিত করে Sliceে পর্যাপ্ত capacity আছে আরও element এপেন্ড করার জন্য এবং খুব তাড়াতাড়ি Sliceকে বাড়াতে হবে না।</p>
+<p>এর ফলে আরও ভালো performance পাওয়া যায়, বিশেষ করে যখন slice দ্রুত বৃদ্ধি পায়।</p>
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
+<p>Go-এর slice বৃদ্ধি কৌশল অনেক ইফিশিয়েন্ট কোড লিখা সম্ভব। ছোট সাইজের slice এর ক্ষেত্রে, Go capacity দ্বিগুণ করে যাতে কম রি-অ্যালোকেশনে আরও element ধারণ করতে পারে। বড় slice (1024 এবং এর বেশি) হলে, এটি capacity ২৫% বৃদ্ধি করে এবং মাঝে মাঝে অপ্টিমাল মেমরি ব্লকের সাথে সামঞ্জস্য রাখে। এই পদ্ধতিটি slice কে দ্রুত এবং মেমরি সাশ্রয়ী করে তোলে।</p>
 <hr />
 <h1 id="১৩-কিছু-ইনটারেসটিং-ইনটারভিউ-পরশনের-উদাহরণ"><a class="header" href="#১৩-কিছু-ইনটারেসটিং-ইনটারভিউ-পরশনের-উদাহরণ">🤯১৩. কিছু ইন্টারেস্টিং ইন্টারভিউ প্রশ্নের উদাহরণ</a></h1>
-<h3 id="-same-underlying-array-trick"><a class="header" href="#-same-underlying-array-trick">⚡ Same Underlying Array Trick</a></h3>
+<h3 id="-some-underlying-array-trick"><a class="header" href="#-some-underlying-array-trick">⚡ Some Underlying Array Trick</a></h3>
 <pre><code class="language-go">var x []int
 x = append(x, 1)
 x = append(x, 2)
@@ -2793,9 +3548,9 @@ fmt.Println(y)
 <ul>
 <li>একটিতে পরিবর্তন (mutation) করলে দুটোরই মান পরিবর্তিত হতে পারে।</li>
 </ul>
-<p>কিন্তু <code>cap</code> অতিক্রম করে অ্যাপেন্ড করলে, তারা আলাদা অ্যারেতে বিভক্ত হতে পারে।</p>
-<h1 id="-১৪-ভযারিযাডিক-ফাংশন-variadic-functions"><a class="header" href="#-১৪-ভযারিযাডিক-ফাংশন-variadic-functions">🛠 ১৪. ভ্যারিয়াডিক ফাংশন (Variadic Functions)</a></h1>
-<p>কোন ফাংশন <code>...</code> (ellipsis) operator ব্যবহার করে অসংখ্য আর্গুমেন্ট গ্রহণ করতে পারে।</p>
+<p>কিন্তু <code>cap</code> অতিক্রম করে অ্যাপেন্ড করলে, তারা আলাদা Array তে বিভক্ত হতে পারে।</p>
+<h1 id="-১৪-variadic-functions"><a class="header" href="#-১৪-variadic-functions">🛠 ১৪. Variadic Functions</a></h1>
+<p>কোন ফাংশন <code>...</code> (ellipsis) operator ব্যবহার করে অসংখ্য argument receive করতে পারে।</p>
 <pre><code class="language-go">func variadic(numbers ...int) {
     fmt.Println(numbers)
 }
@@ -2804,7 +3559,7 @@ variadic(2, 3, 4, 6, 8, 10)
 </code></pre>
 <p>এখানে <code>numbers</code> কিন্তু একটি <strong>slice</strong>!</p>
 <hr />
-<h1 id="-ram-এ-slice-এর-ভিজযুযালাইজেশন-arr-এবং-s-এর-জনয"><a class="header" href="#-ram-এ-slice-এর-ভিজযুযালাইজেশন-arr-এবং-s-এর-জনয">🧠 RAM এ Slice এর ভিজ্যুয়ালাইজেশন (arr এবং s এর জন্য)</a></h1>
+<h1 id="-ram-এ-slice-এর-visualization-arr-এবং-s-এর-জনয"><a class="header" href="#-ram-এ-slice-এর-visualization-arr-এবং-s-এর-জনয">🧠 RAM এ Slice এর visualization (arr এবং s এর জন্য)</a></h1>
 <pre><code>Array arr (indexes):
 [0] "This"
 [1] "is"  &lt;- s.ptr points here
@@ -2818,11 +3573,11 @@ Slice s:
 - len = 3 ("is", "a", "Go")
 - cap = 5 (from "is" to "Questions")
 </code></pre>
-<p>মেমরি ভিজ্যুয়ালাইজেশন:</p>
-<pre><code>+---+---+---+---+---+---+
+<p>Memory Visualization:</p>
+<pre><code>+----+--+-+--+---------+---------+
 |This|is|a|Go|interview|Questions|
-+---+---+---+---+---+---+
-     ^   ^   ^
++----+--+-+--+---------+---------+
+       ^ ^  ^
      s[0] s[1] s[2]
 </code></pre>
 <hr />
@@ -4187,6 +4942,539 @@ defer mu.Unlock()
 <li>কম Bug</li>
 </ul>
 <p>শুধু syntax জানলেই হবে না — এর ভিতরের Stack-মাথা, Return-trap, এবং Variable-capture খেলাও বোঝা জরুরি।</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="-class-41--separate-stack-for-separate-thread"><a class="header" href="#-class-41--separate-stack-for-separate-thread">🧵 Class 41 : Separate Stack For Separate Thread</a></h1>
+<h2 id="-recap"><a class="header" href="#-recap">🔁 Recap</a></h2>
+<ul>
+<li><a href="https://nesohq.github.io/bgce-archive/interview-qna/class-wise/golang038-thread/index.html">Thread</a> সম্পর্কে জানতে হবে।</li>
+<li><a href="https://nesohq.github.io/bgce-archive/interview-qna/class-wise/golang034-breaking-the-cpu-and-process/index.html">Process</a> সম্পর্কে জানতে হবে।</li>
+<li><a href="https://nesohq.github.io/bgce-archive/interview-qna/class-wise/golang035-BP-SP/index.html">SP BP</a> সম্পর্কে ভালো ধারনা থাকতে হবে।</li>
+</ul>
+<h2 id="-program-execution"><a class="header" href="#-program-execution">🧠 Program Execution</a></h2>
+<ul>
+<li>Program execute → Process create</li>
+<li>Process create → default একটি thread create (main thread)</li>
+<li>OS (Kernel) → Thread execute করে</li>
+<li>Thread execute → Independent task / features</li>
+</ul>
+<h3 id="-example-6"><a class="header" href="#-example-6">🧪 Example</a></h3>
+<p>একটি প্রোগ্রাম যেমন Music Player — তার অনেক গুলো কাজ (functionality) একসাথে চালানো লাগে:
+যেমন:</p>
+<ul>
+<li>🎵 Music List দেখানো</li>
+<li>▶️ Music PLay</li>
+<li>🎶 বিট/Visualizer দেখানো</li>
+</ul>
+<p>এগুলো একসাথে চলতে পারে, কিন্তু একটার কাজ আরেকটাকে আটকে রাখতে পারে না।
+এই জন্যই Thread ব্যবহার করা হয়।</p>
+<pre><code class="language-plaintext">
+Program (Process)
+│
+├── Thread 1 (Main Thread)
+│   └── Stack: funcA(), var x, return addr
+│
+├── Thread 2
+│   └── Stack: funcPlay(), var song, return addr
+│
+└── Thread 3
+    └── Stack: funcVisual(), var beat, return addr
+</code></pre>
+<h2 id="-main-function-execution"><a class="header" href="#-main-function-execution">🧷 Main Function Execution</a></h2>
+<p>প্রায় প্রতিটি compiled এবং structured language-এ execution শুরু হয় main() function দিয়ে, কারণ এটি একটি নির্ধারিত entry point যা runtime system বা OS খুঁজে নিয়ে চালায়।</p>
+<ul>
+<li><code>main</code> function → stackframe create হয়</li>
+<li><code>main()</code> এর ভিতর অন্য function invoke → তার জন্য stackframe create হয়</li>
+<li>প্রতিটি Stack, একটি Thread এর জন্য বরাদ্দ থাকে</li>
+<li>Stack Execute → Thread Execute</li>
+</ul>
+<blockquote>
+<p>Stack একটা একটা করে সব function execute করে।</p>
+</blockquote>
+<blockquote>
+<p>Stack কে Thread execute করে।</p>
+</blockquote>
+<h2 id="-thread-এবং-stack"><a class="header" href="#-thread-এবং-stack">🗂️ Thread এবং Stack</a></h2>
+<p>একটি Program execute করতে হলে multiple tasks parallely করতে হতে পারে।</p>
+<p>এর জন্য দরকার হয় Multiple Threads।</p>
+<p>প্রতিটি Thread যখন তৈরি হয়, তখন নিজস্ব Stack memory বরাদ্দ পায়।</p>
+<p>এই Stack এ থাকে:</p>
+<ul>
+<li>ফাংশন কলের return address</li>
+<li>Local variables</li>
+<li>Function arguments</li>
+</ul>
+<h2 id="-stack-কোথায়-থাকে"><a class="header" href="#-stack-কোথায়-থাকে">💾 Stack কোথায় থাকে</a></h2>
+<ul>
+<li>main thread → main stack</li>
+<li>Linux → RAM এ Stack এর জন্য <code>8MB</code> allocate হয়</li>
+<li>Independent task এর জন্য আলাদা Thread লাগবে → new Stack → RAM এ 8MB Storage</li>
+<li>Process এর জন্য → No. of Thread <code>*</code> 8MB allcoate হয়
+<ul>
+<li>Process এ <code>10</code> Thread থাকলে <code>10 * 8 = 80</code> MB RAM allocated হয়</li>
+</ul>
+</li>
+<li>Stack, RAM এর যে কোন ফাঁকা জায়গায় থাকতে পারে</li>
+<li>Code Segment, Data Segment, Heap → সব thread access / use করতে পারে</li>
+<li>Process, main thread বাদে অন্য thread track / execute করে না</li>
+<li>Thread → Stack এ কোন variable / function না থাকলে → kernel কে code segment, data segment এ search করতে request করে</li>
+</ul>
+<blockquote>
+<p>📌 Code Segment, Data Segment, Stack এর size fixed থাকে। Heap dynamically grow / shrink করতে পারে তাই data, Heap এ বেশি রাখা হয়।</p>
+</blockquote>
+<h2 id="-kernel"><a class="header" href="#-kernel">🖥️ Kernel</a></h2>
+<ul>
+<li>main thread বাদে অন্য thread → Kernel create করে</li>
+<li>Thread execute → Opeating System (Kernel)</li>
+<li>Kernel decide করে → কোন processor কোন process / thread কে execute করবে</li>
+<li>Kernel track রাখে → কোন process এর under এ কয়টি thread থাকে</li>
+<li>Kernel (Modern computer) → execution এর ক্ষেত্রে only thread count রাখে</li>
+</ul>
+<blockquote>
+<p>🧠 Operating System core component → Kernel; Kernel process schedule, concurrency / parallelism handle করে।</p>
+</blockquote>
+<blockquote>
+<p>🧾 Programming language এর উপর depend করে কীভাবে thread create হবে।</p>
+</blockquote>
+<h2 id="-default-stack-sizes-by-platform"><a class="header" href="#-default-stack-sizes-by-platform">📊 Default Stack Sizes by Platform</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>OS</th><th>Default Stack Size (main thread)</th><th>Default Stack Size (new threads)</th><th>Notes</th></tr></thead><tbody>
+<tr><td>🪟 Windows</td><td>1 MB</td><td>1 MB</td><td>Can be changed via linker or <code>CreateThread</code></td></tr>
+<tr><td>🐧 Linux</td><td>8 MB</td><td>8 MB</td><td>Controlled by <code>ulimit -s</code> and <code>pthread_attr_setstacksize()</code></td></tr>
+<tr><td>🍎 macOS</td><td>8 MB</td><td>512 KB</td><td>Main thread gets 8MB, but <code>pthread</code> threads get 512KB by default</td></tr>
+</tbody></table>
+</div>
+<p>[<strong>Author:</strong> @nazma98
+<strong>Date:</strong> 2025-06-19
+<strong>Category:</strong> interview-qa/class-wise
+]</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="class-42---complex-and-beautiful-go-routine"><a class="header" href="#class-42---complex-and-beautiful-go-routine">Class 42 : ✨ Complex And Beautiful Go Routine</a></h1>
+<h2 id="-goroutine"><a class="header" href="#-goroutine">🌀 Goroutine</a></h2>
+<ul>
+<li><strong>Lightweight thread</strong> / <strong>Virtual thread</strong></li>
+<li><strong>Logically thread</strong> এর মতো কাজ করে</li>
+<li>Concurrently অনেকগুলো function execute করে</li>
+<li><strong>Go Runtime</strong> একে manage করে</li>
+</ul>
+<h2 id="-creating-a-goroutine"><a class="header" href="#-creating-a-goroutine">🛠️ Creating a Goroutine</a></h2>
+<p>কোনো function এর আগে <code>go</code> keyword লিখে দিলে সেটা <em>goroutine</em> হয়।</p>
+<h3 id="-example-7"><a class="header" href="#-example-7">💡 Example</a></h3>
+<pre><code class="language-go">package main
+
+import (
+    "fmt"
+    "time"
+    )
+
+var a = 10
+
+const p = 11
+
+func printHello(num int) {
+	fmt.Println("Hello Habib", num)
+}
+
+func main() {
+	go printHello(1)
+
+	go printHello(2)
+
+	go printHello(3)
+
+	go printHello(4)
+
+	go printHello(5)
+
+	fmt.Println(a, " ", p)
+
+	time.Sleep(5 * time.Second)
+}
+</code></pre>
+<p>এই Go কোডে একটা <code>printHello</code> নামের ফাংশন আছে, যেটা <code>"Hello Habib"</code> লিখে সাথে একটা সংখ্যা প্রিন্ট করে।</p>
+<p><code>main()</code> ফাংশনে এই ফাংশনটা ৫ বার <em>goroutine</em> দিয়ে চালানো হয়েছে</p>
+<p>সবগুলা <em>goroutine</em> যেন কাজ শেষ করতে পারে, তাই শেষে <code>time.Sleep(5 * time.Second)</code> দিয়ে ৫ সেকেন্ড প্রোগ্রামটাকে অপেক্ষা করানো হয়েছে।</p>
+<h2 id="-how-gorouitne-works-internally"><a class="header" href="#-how-gorouitne-works-internally">📦 How gorouitne works Internally</a></h2>
+<p><strong>Goroutine</strong> কীভাবে কাজ করে বুঝার জন্য আমাদের একটি Go program এর <em>compilation</em>, <em>execution phase</em> এবং <em>Thread</em> ভালভাবে বুঝতে হবে।</p>
+<h3 id="-compilation-phase-of-go-program"><a class="header" href="#-compilation-phase-of-go-program">🔧 Compilation Phase of Go Program</a></h3>
+<p>Go program কে compile করার জন্য নিচের command টি ব্যবহার করা হয়</p>
+<pre><code class="language-go">go build main.go
+</code></pre>
+<ul>
+<li>এতে একটি binary executable file তৈরি হবে (<em>Linux</em> এ <code>main</code>, <em>Windows</em> এ <code>main.exe</code>)</li>
+<li>Binary executable file → Code Segment</li>
+<li>Code Segment → <code>const</code> (read only)
+→ <strong>functions</strong></li>
+<li><code>main</code> binary executable file store → <strong>HDD</strong></li>
+</ul>
+<pre><code class="language-plaintext">                        **Code Segment**
+
+			p = 11
+			printHello = printHello() {...}
+			main = main() {...}
+
+</code></pre>
+<h3 id="-execution-phase-of-go-program"><a class="header" href="#-execution-phase-of-go-program">🚀 Execution Phase of Go Program</a></h3>
+<p>Binary executable file run করার জন্য command -</p>
+<pre><code class="language-bash">./main
+</code></pre>
+<ul>
+<li>Binary executable file load → RAM</li>
+<li>RAM Memory Layout → Code Segment, Data Segment, Stack, Heap</li>
+<li><code>main</code> program → Process create হয়</li>
+</ul>
+<div class="table-wrapper"><table><thead><tr><th>Segment</th><th>Purpose</th><th>Size / Behavior</th></tr></thead><tbody>
+<tr><td>Code Segment</td><td>compiled machine code (functions)</td><td>Fixed size</td></tr>
+<tr><td>Data Segment</td><td>global &amp; static variables</td><td>Fixed or small</td></tr>
+<tr><td>Heap</td><td>dynamically allocated data (<code>make</code>, etc.)</td><td>Grows <strong>upward</strong></td></tr>
+<tr><td>Stack</td><td>function call info, local vars</td><td>Grows <strong>downward</strong>, ~8MB (Linux)</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p>যে কোনও programming language (যেমন C, C++, Go, Rust) এর প্রোগ্রাম যখন compile হয়ে binary (.exe / .out) তে convert হয় এবং execution শুরু হয়, তখন একটা process তৈরি হয় এবং সেই process এর জন্য memory তে <em>Code Segment, Data Segment, Stack, Heap</em> থাকে।</p>
+</blockquote>
+<h3 id="-ram-memory-layout-visualization"><a class="header" href="#-ram-memory-layout-visualization">🔍 RAM Memory Layout Visualization</a></h3>
+<pre><code class="language-plaintext">┌──────────────────────────┐
+│       Heap               │ ← Grows Upward
+├──────────────────────────┤
+│     Stack (Top ↓)        │ ← Grows Downward
+├──────────────────────────┤
+│     Data Segment         │ ← Initialized global/static variables
+├──────────────────────────┤
+│     Code Segment         │ ← Machine Instructions
+└──────────────────────────┘
+</code></pre>
+<h3 id="-program-execution-process-visualization"><a class="header" href="#-program-execution-process-visualization">⚙️ Program Execution Process Visualization</a></h3>
+<pre><code class="language-plaintext">
+HDD ➜ OS Loader ➜ RAM ➜ CPU Executes
+
+📁 HDD (Hard Disk)
+│
+│  → Executable File (.exe, .out, etc.)
+│
+▼
+📥 Loader (Operating System)
+│
+│  → Loads program into RAM
+│
+▼
+🧠 RAM (Main Memory)
+│
+├── 📄 Code Segment        → compiled machine code (instructions)
+│
+├── 🗃️ Data Segment        → global &amp; static variables
+│
+├── 📦 Heap Segment        → dynamic memory (malloc/new)
+│
+├── 📚 Stack Segment       → function calls, local variables
+│
+▼
+⚡ CPU (Processor)
+   ├── Fetch → Decode → Execute instructions
+   ├── Uses Registers (like AL, BL, etc.)
+   └── Uses Stack Pointer (SP), Base Pointer (BP)
+</code></pre>
+<h3 id="-process--thread"><a class="header" href="#-process--thread">🖥️ Process &amp; Thread</a></h3>
+<ul>
+<li>Process initially একটি Thread থাকে → Deafult Thread / Main Thread</li>
+<li>Thread কে OS এর kernel execute করলে → Stack execute হয়</li>
+<li>Stack execute → Stack frame create &amp; execute হয়</li>
+</ul>
+<h3 id="-go-runtime--a-mini-os-or-virtual-operating-system"><a class="header" href="#-go-runtime--a-mini-os-or-virtual-operating-system">🌀 Go Runtime = A Mini OS or Virtual Operating System</a></h3>
+<p>Go program → Run → <code>main</code> binary load → Code Segment</p>
+<blockquote>
+<p>⚙️ <strong><code>main</code> Binary – More Than Just Code Segment</strong></p>
+<ul>
+<li>শুধু code segment নয়</li>
+<li>আরও অনেক binary থাকে</li>
+<li>code segment শুধু একটা অংশ মাত্র</li>
+</ul>
+</blockquote>
+<ul>
+<li>Thread execute → Process start</li>
+<li>Process → Virtual computer</li>
+<li>Go Runtime → Virtual Operating System</li>
+<li>Process start → Go Runtime execute</li>
+</ul>
+<h4 id="-go-runtime-code-execute"><a class="header" href="#-go-runtime-code-execute">🧩 Go Runtime Code Execute</a></h4>
+<ul>
+<li>Stack → 8MB Stack (main stack) → Stack Frame create</li>
+<li>main thread execute করে → Go runtime</li>
+</ul>
+<p>Go Runtime initialize করে -</p>
+<ul>
+<li><strong>1. Go Routine Scheduler</strong></li>
+<li><strong>2. Heap Allocator</strong></li>
+<li><strong>3. Garbage Collector</strong></li>
+<li><strong>4. Logical Processors</strong></li>
+</ul>
+<h4 id="go-routine-scheduler"><a class="header" href="#go-routine-scheduler">Go Routine Scheduler</a></h4>
+<p><em>OS Kernel scheduler</em> → Process schedule, Concurrency, Parallelism handle করে।</p>
+<p><em>Go Routine Scheduler</em> ও Real OS Kernel Scheduler এর মতো কাজ করে।</p>
+<h4 id="logical-processors"><a class="header" href="#logical-processors">Logical Processors</a></h4>
+<blockquote>
+<p>🔁 <em>Recap</em></p>
+<ul>
+<li><a href="https://nesohq.github.io/bgce-archive/interview-qna/class-wise/golang034-breaking-the-cpu-and-process/index.html">CPU কীভাবে Code execute করে</a></li>
+</ul>
+</blockquote>
+<ul>
+<li>OS এর ভিতর → virtual processors (vCPU) create হয়</li>
+<li>CPU তে যে কয়টি vCPU (virtual CPU / logical Processor) থাকে → Go Runtime সে কয়টি logical processor create করে</li>
+<li>প্রতিটি logical processor এর জন্য → OS আলাদা OS Thread create করে
+<ul>
+<li>CPU 2 core → 4 vCPU</li>
+<li>Go Runtime initilize করে → 4 logical processors</li>
+<li>4 logical processors এর জন্য → OS আলাদা 4 OS Thread create করে</li>
+<li>4 OS Thread → 4 stack</li>
+<li>Total threads in process → 4 (OS thread) + 1 (main thread) → 5 threads</li>
+<li>OS kernel → 5 threads কে track করে</li>
+<li>1 main thread এর জন্য → 1 main stack</li>
+<li>4 supporting thread এর জন্য → 4 supporting stack</li>
+</ul>
+</li>
+<li>go runtime kernel → go routine schedule করে
+<ul>
+<li>4 thread → 10 goroutine execute করে concurrency follow করে</li>
+</ul>
+</li>
+</ul>
+<h3 id="-go-runtime-os-thread-scheduler-and-logical-processor-mapping"><a class="header" href="#-go-runtime-os-thread-scheduler-and-logical-processor-mapping">🧠 Go Runtime: OS Thread, Scheduler, and Logical Processor Mapping</a></h3>
+<pre><code class="language-plaintext">                    🌀 Go Runtime Scheduler
+                             │
+                             ▼
+──────────────────────────────────────────────────────
+|                   Logical Processors (P)           |
+|────────────────────────────────────────────────────|
+|      P1               P2              P3           |
+|        										     |
+|   [G1, G4, G6]     [G2, G5]        [G3, G7, G8]    |
+──────────────────────────────────────────────────────
+      │               │              │
+      ▼               ▼              ▼
+  Assigned to     Assigned to    Assigned to
+      │               │              │
+      ▼               ▼              ▼
+─────────────────────────────────────────────
+|             OS Threads (M)                 |
+|─────────────────────────────────────────── |
+|     M1             M2             M3       |
+|   (running)     (running)      (idle)      |
+─────────────────────────────────────────────
+      │               │
+      ▼               ▼
+   🖥️ CPU Core 1     🖥️ CPU Core 2
+
+</code></pre>
+<blockquote>
+<p>Go runtime, OS Thread কীভাবে create করতে হয় সেটি handle করে।</p>
+</blockquote>
+<blockquote>
+<p>Go runtime শুরুতেই সিস্টেমের vCPU (logical core) অনুযায়ী Logical Processor (P) তৈরি করে।</p>
+</blockquote>
+<ul>
+<li>Go Runtime নিজেই একটি kernel এর মতো কাজ করে</li>
+<li>এই "kernel" এর scheduler থাকে</li>
+<li>Scheduler, Goroutine গুলোকে execute করতে OS thread কে কাজ ভাগ করে দেয়</li>
+<li>OS Thread গুলোই CPU তে বসে goroutine গুলো execute করে</li>
+<li>Go Scheduler ঠিক করে কোন goroutine কখন execute হবে</li>
+<li>Scheduler OS thread এ map করে thousands of goroutine efficiently চালায়</li>
+</ul>
+<h3 id="-go-runtime-kernel--goroutine-scheduling"><a class="header" href="#-go-runtime-kernel--goroutine-scheduling">🖥️ Go Runtime Kernel &amp; Goroutine Scheduling</a></h3>
+<pre><code class="language-plaintext">                       🌀 Go Runtime (Mini Kernel)
+                               │
+                               ▼
+                      🧠 Go Routine Scheduler (Scheduler)
+                               │
+      -----------------------------------------------------
+      |                       |                           |
+      ▼                       ▼                           ▼
+  G1: Goroutine         G2: Goroutine               G3: Goroutine
+ (Task 1)                 (Task 2)                     (Task 3)
+      \_______________________|________________________/
+                               │
+                               ▼
+                    📦 Placed into P's Run Queue
+                               │
+                               ▼
+        🔄 Scheduler decides which G to run on which M
+                               │
+      -----------------------------------------------------
+      |                       |                          |
+      ▼                       ▼                          ▼
+   🧵 M1: OS Thread        🧵 M2: OS Thread           🧵 M3: OS Thread
+ (Executes Gs)          (Executes Gs)              (Executes Gs)
+      |                       |                          |
+      ▼                       ▼                          ▼
+   🖥️ CPU Core 1          🖥️ CPU Core 2             🖥️ CPU Core 3
+
+
+   → G (goroutine)
+   → P (Processor)
+   → M (OS Thread)
+
+</code></pre>
+<blockquote>
+<p>Programmer Goroutine create করে।</p>
+</blockquote>
+<h4 id="-effects-of-excessive-goroutines-in-go"><a class="header" href="#-effects-of-excessive-goroutines-in-go">📈🧵 Effects of Excessive Goroutines in Go</a></h4>
+<ul>
+<li>Scheduler notice করে → excessive gorutines</li>
+<li>Go Runtime → প্রয়োজন অনুযায়ী logical processors &amp; OS Thread create করে</li>
+<li>RAM full → OS Thread create করা possible হয় না</li>
+<li>❌ OS Thread → ❌ Goroutine execution</li>
+</ul>
+<blockquote>
+<p>First যে goroutine run হয় → main goroutine</p>
+</blockquote>
+<blockquote>
+<p>main function execute হয় → main goroutine এ</p>
+</blockquote>
+<h2 id="-goroutines-home-stack--heap"><a class="header" href="#-goroutines-home-stack--heap">🏠 Goroutine's Home: Stack &amp; Heap</a></h2>
+<p>Goroutine - mini thread / virtual thread / logical thread</p>
+<p>প্রতিটি goroutine</p>
+<ul>
+<li>এর <strong>stack থাকে heap</strong> memory এ</li>
+<li>শুরুতে মাত্র <strong>2KB stack</strong> পায়</li>
+</ul>
+<h3 id="main--main-goroutine"><a class="header" href="#main--main-goroutine"><code>main()</code> → Main Goroutine</a></h3>
+<ul>
+<li>Go প্রোগ্রাম রান হলেই <code>main()</code> function চালু হয়</li>
+<li>এটিই প্রথম goroutine - যাকে বলে <strong>Main Goroutine</strong></li>
+<li>সব normal function call (যেমন <code>f()</code>, <code>g()</code>) এর stack frame তৈরি হয় এই একই stack এ</li>
+</ul>
+<h3 id="go-functionname--new-goroutine"><a class="header" href="#go-functionname--new-goroutine"><code>go functionName()</code> → New Goroutine</a></h3>
+<p><code>go functionName()</code> লিখলে তখন Go runtime:</p>
+<ul>
+<li>নতুন goroutine তৈরি করে</li>
+<li>সেটার জন্য আলাদা stack তৈরি করে (initially 2KB)</li>
+<li>এটিকে scheduling queue তে দেয়</li>
+</ul>
+<h4 id="-example-8"><a class="header" href="#-example-8">🖼️ Example</a></h4>
+<pre><code class="language-go">var a = 10
+
+const p = 11
+
+func add(a, b int) {
+  fmt.Println(a + b)
+}
+
+func printHello(num int) {
+	fmt.Println("Hello Habib", num)
+
+     add(2, 4)
+}
+
+func main() {
+    var x int = 10
+
+    fmt.Println("Hello", x)
+
+    printHello(10)
+
+    go printHello(1)
+
+    go printHello(2)
+
+    go printHello(3)
+
+    go printHello(4)
+
+    go printHello(5)
+
+    fmt.Println(a, " ", p)
+
+    time.Sleep(5 * time.Second)
+}
+</code></pre>
+<p><strong>Main Goroutine</strong></p>
+<ul>
+<li>এখানে <code>main()</code> এর জন্য <em>main goroutine</em> create হবে</li>
+<li>main goroutine এ <code>main()</code>, <code>printHello(10)</code> এবং <code>fmt.Println()</code> এর জন্য Stack Frame create হবে</li>
+<li>যদি Go program এ <code>init()</code> থাকে তবে <code>init()</code> এর জন্য ও Stack Frame, <em>main goroutine</em> এ create হবে</li>
+</ul>
+<p><strong>Other Goroutines</strong></p>
+<ul>
+<li><code>printHello()</code> এর জন্য Go runtime ৫টি আলাদা goroutine তৈরি করবে</li>
+<li><code>go printHello(1)</code> এর জন্য Heap এ যে goroutine create হয় সেখানে <code>printHello(1)</code>, <code>fmt.Println()</code> এবং <code>add(2, 4)</code> এর জন্য Stack Frame create হবে</li>
+<li>একই ভাবে অন্য goroutine এর জন্যও Stack Frame create হবে</li>
+</ul>
+<p><strong>🔍 যদি 2KB Stack যথেষ্ট না হয়</strong></p>
+<ul>
+<li>➡️ Go runtime automatically stack এর size বড় করে দেয় (dynamic grow করে)</li>
+</ul>
+<p><strong>📈 কিভাবে কাজ করে?</strong></p>
+<ul>
+<li><em>শুরুতে:</em> <strong>2KB</strong></li>
+<li><em>দরকার হলে:</em> <strong>4KB</strong>, <strong>8KB</strong>, <strong>16KB</strong>... → যত দরকার তত বাড়তে পারে</li>
+<li><em>সর্বোচ্চ</em>: <strong>1 GB</strong> পর্যন্ত</li>
+</ul>
+<blockquote>
+<p>Go runtime পুরা stack copy করে নতুন বড় stack এ নিয়ে যায়, old stack ফেলে দেয়।</p>
+</blockquote>
+<blockquote>
+<p>Go Runtime reallocate করতে পারে।</p>
+</blockquote>
+<p>Heap এর Stack এ যে <a href="https://nesohq.github.io/bgce-archive/interview-qna/class-wise/golang035-BP-SP/index.html">SP, BP</a> থাকে তা মূলত <strong>Go Runtime এর initialized logical processor</strong> এর SP, BP, return address etc.</p>
+<pre><code>
+                    🧵 Goroutines &amp; Their Stack Memory
+
+┌──────────────────────────────┬─────────────────────────────┬─────────────────────────────┐
+│ Goroutine 1 (main)           │ Goroutine 2 (printHello 1)  │ Goroutine 3 (printHello 2)  │
+├──────────────────────────────┼─────────────────────────────┼─────────────────────────────┤
+│ Stack:                       │ Stack:                      │ Stack:                      │
+│ - main()                     │ - printHello(1)             │ - printHello(2)             │
+│ - printHello(10)             │ - fmt.Println()             │ - fmt.Println()             │
+│ - fmt.Println()              │ - add(2, 4)                 │ - add(2, 4)                 │
+└──────────────────────────────┴─────────────────────────────┴─────────────────────────────┘
+
+┌─────────────────────────────┬─────────────────────────────┬──────────────────────────────┐
+│ Goroutine 4 (printHello 3)  │ Goroutine 5 (printHello 4)  │ Goroutine 6 (printHello 5)   │
+├─────────────────────────────┼─────────────────────────────┼──────────────────────────────┤
+│ Stack:                      │ Stack:                      │ Stack:                       │
+│ - printHello(3)             │ - printHello(4)             │ - printHello(5)              │
+│ - fmt.Println()             │ - fmt.Println()             │ - fmt.Println()              │
+│ - add(2, 4)                 │ - add(2, 4)                 │ - add(2, 4)                  │
+└─────────────────────────────┴─────────────────────────────┴──────────────────────────────┘
+
+</code></pre>
+<blockquote>
+<p>Main goroutine শেষ হলেই পুরো program শেষ,
+তাই অন্য goroutine চালাতে চাইলে main goroutine কে কিছু সময় বাঁচিয়ে রাখতে হবে ✅</p>
+</blockquote>
+<p><strong>💥 When &amp; How <em>Main Thread</em>, <em>Go Runtime</em> &amp; <em>Main Goroutine</em> Get Destroyed</strong></p>
+<blockquote>
+<p>main thread ≠ main goroutine</p>
+</blockquote>
+<div class="table-wrapper"><table><thead><tr><th>Component</th><th>Destruction Point</th></tr></thead><tbody>
+<tr><td><strong>Main Goroutine</strong></td><td>Ends when <code>main()</code> returns or panics</td></tr>
+<tr><td><strong>Main Thread</strong></td><td>Exits after main goroutine ends</td></tr>
+<tr><td><strong>Go Runtime</strong></td><td>Terminates when main goroutine ends</td></tr>
+<tr><td><strong>Other Goroutines</strong></td><td>Force-killed when main goroutine exits</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p>goroutine গুলো শেষ পর্যন্ত execute করার জন্য <code>main()</code> কে block করে রাখা যায় যেমন:</p>
+<ul>
+<li><code>time.Sleep()</code></li>
+<li><code>sync.WaitGroup</code></li>
+<li><code>select {}</code> (infinite block)</li>
+</ul>
+</blockquote>
+<h2 id="-thread-vs-goroutine"><a class="header" href="#-thread-vs-goroutine">🧵 Thread vs Goroutine</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Feature</th><th><strong>Thread</strong></th><th><strong>Goroutine</strong></th></tr></thead><tbody>
+<tr><td><strong>Definition</strong></td><td>OS-level execution unit</td><td>Go’s lightweight concurrent execution unit</td></tr>
+<tr><td><strong>Created By</strong></td><td>Operating System</td><td>Go Runtime Scheduler</td></tr>
+<tr><td><strong>Memory Usage</strong></td><td>~1 MB stack (fixed)</td><td>Starts with ~2 KB stack (grows dynamically)</td></tr>
+<tr><td><strong>Creation Cost</strong></td><td>High (involves system call)</td><td>Very Low (simple runtime function)</td></tr>
+<tr><td><strong>Scheduling</strong></td><td>Done by OS</td><td>Done by Go runtime (user-space scheduler)</td></tr>
+<tr><td><strong>Communication</strong></td><td>Using shared memory, locks</td><td>Using channels (safe and built-in)</td></tr>
+<tr><td><strong>Concurrency Limit</strong></td><td>Limited (few thousand max)</td><td>Huge (millions possible)</td></tr>
+<tr><td><strong>Blocking</strong></td><td>Blocks entire thread</td><td>Blocking one goroutine doesn’t block others</td></tr>
+<tr><td><strong>Context Switching</strong></td><td>Costly (kernel-level)</td><td>Cheap (user-space context switch)</td></tr>
+<tr><td><strong>Portability</strong></td><td>Depends on OS</td><td>Cross-platform (managed by Go)</td></tr>
+</tbody></table>
+</div>
+<p>[<strong>Author:</strong> @nazma98
+<strong>Date:</strong> 2025-06-24
+<strong>Category:</strong> interview-qa/class-wise
+]</p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="topic-wise"><a class="header" href="#topic-wise">Topic wise</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><p>[<strong>Author:</strong> @mdimamhosen
 <strong>Date:</strong> 2025-04-19
@@ -6539,7 +7827,7 @@ go func() {
 <li><strong>C++</strong>: Threads use ~100GB; coroutines are lightweight but lack standard scheduling, requiring custom libraries.</li>
 <li><strong>Node.js</strong>: Event loop handles I/O well but bottlenecks on CPU tasks, needing worker threads (~100GB).</li>
 </ul>
-<h3 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h3>
+<h3 id="conclusion-1"><a class="header" href="#conclusion-1">Conclusion</a></h3>
 <p>Goroutines are praised for their <strong>lightweight nature</strong>, <strong>fast performance</strong>, and <strong>simple programming model</strong>, making them more efficient and scalable than Java/C++ threads, Python’s threading/multiprocessing, and Node.js’s event loop for most workloads. Channels and the Go scheduler eliminate much of the complexity of traditional concurrency, enabling developers to write robust, high-performance concurrent programs with ease. While Java and C++ offer powerful concurrency tools, they require more boilerplate and tuning, and Python’s GIL and Node.js’s single-threaded model limit their versatility. Go strikes a unique balance, making it a preferred choice for concurrent systems like servers, microservices, and distributed applications.</p>
 <div style="break-before: page; page-break-before: always;"></div><p>[<strong>Author:</strong> @mdimamhosen
 <strong>Date:</strong> 2025-04-22
@@ -9591,7 +10879,6 @@ objdump -h your_program | grep -E "\.(text|rodata|data|bss)"
 </ul>
 <p>এখন যখনই আপনি global variable declare করবেন, মনে রাখবেন - আপনি একটা character এর journey শুরু করে দিচ্ছেন memory kingdom এ!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="students-will-keep"><a class="header" href="#students-will-keep">Students will keep</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="documentation-for-the-mini-cards-project"><a class="header" href="#documentation-for-the-mini-cards-project">Documentation for the mini cards project</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><p>[<strong>Author:</strong> @mdimamhosen
 <strong>Date:</strong> 2025-04-23
 <strong>Category:</strong> e.g., mini-projects/Quantique
@@ -9648,92 +10935,10 @@ go get github.com/Delta456/box-cli-maker/v2
 <hr />
 <h2 id="-a-note-from-the-author"><a class="header" href="#-a-note-from-the-author">🤝 A Note from the Author</a></h2>
 <p>A small contribution to the incredible Best GoLang Community Ever</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="url-shortener---go"><a class="header" href="#url-shortener---go">URL Shortener - Go</a></h1>
-<p>A simple URL shortening service built with Go and MySQL. This project allows users to generate short URLs and redirect to the original long URL using a unique key.</p>
-<h2 id="features"><a class="header" href="#features">Features</a></h2>
-<ul>
-<li>Generate short URLs with unique keys</li>
-<li>Redirect to the original URL</li>
-<li>MySQL integration for URL storage</li>
-<li>JSON-based HTTP API</li>
-<li>Environment variable support via <code>.env</code> file</li>
-</ul>
-<h2 id="project-structure"><a class="header" href="#project-structure">Project Structure</a></h2>
-<pre><code>UrlShortner-Go/
-├── config/            # Loads MySQL connection using env vars
-├── database/
-│   └── mysql.go       # MySQL operations for saving and retrieving URLs
-├── handlers/
-│   └── UrlHandler.go  # HTTP handlers for shortening and redirecting
-├── models/            # Request/response models
-├── utils/
-│   └── utils.go       # Random key generation
-├── .env               # Environment variables
-└── main.go            # Entry point of the server
-</code></pre>
-<h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
-<ol>
-<li>
-<p>Clone the repository:</p>
-<pre><code class="language-bash">git clone https://github.com/0baydullah/UrlShortner-Go.git
-</code></pre>
-</li>
-<li>
-<p>Navigate to the project directory:</p>
-<pre><code class="language-bash">cd UrlShortner-Go
-</code></pre>
-</li>
-<li>
-<p>Set up your MySQL database and table:</p>
-<pre><code class="language-sql">CREATE DATABASE urlshortener;
-USE urlshortener;
-CREATE TABLE urls (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    short_key VARCHAR(255) NOT NULL UNIQUE,
-    original_url TEXT NOT NULL
-);
-</code></pre>
-</li>
-<li>
-<p>Create a <code>.env</code> file in the root directory:</p>
-<pre><code class="language-env">DB_USER=your_db_username
-DB_PASSWORD=your_db_password
-DB_HOST=localhost
-DB_PORT=3306
-DB_NAME=urlshortener
-</code></pre>
-</li>
-<li>
-<p>Run the application:</p>
-<pre><code class="language-bash">go run main.go
-</code></pre>
-</li>
-</ol>
-<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
-<h3 id="shorten-a-url"><a class="header" href="#shorten-a-url">Shorten a URL</a></h3>
-<p>Send a <code>POST</code> request to <code>/shorten</code>:</p>
-<pre><code class="language-bash">curl -X POST http://localhost:8081/shorten -H "Content-Type: application/json" -d '{"url": "https://example.com"}'
-</code></pre>
-<p><strong>Response:</strong></p>
-<pre><code class="language-json">{
-  "key": "abc123",
-  "url": "https://example.com",
-  "shortUrl": "http://localhost:8081/abc123"
-}
-</code></pre>
-<p>or If you want to  test it you can use <code>PostMan</code> too! ;-)</p>
-<h3 id="here-is-a-preview-from-postman-had-been-hosted-on-a-free-vps-maybe-expired-already"><a class="header" href="#here-is-a-preview-from-postman-had-been-hosted-on-a-free-vps-maybe-expired-already">Here is a preview from Postman (had been hosted on a free VPS, maybe expired already)</a></h3>
-<p><img src="https://github.com/0baydullah/UrlShortner-Go/blob/main/image.png?raw=true" alt="App Preview" /></p>
-<h3 id="redirect-to-original-url"><a class="header" href="#redirect-to-original-url">Redirect to Original URL</a></h3>
-<p>Visit the shortened URL:</p>
-<pre><code class="language-bash">http://localhost:8081/abc123
-</code></pre>
-<p>This will redirect to <code>https://example.com</code>.</p>
-<h2 id="contributing"><a class="header" href="#contributing">Contributing</a></h2>
-<p>Contributions are welcome! Feel free to open issues or submit pull requests.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="documentation-for-the-mini-cards-project"><a class="header" href="#documentation-for-the-mini-cards-project">Documentation for the mini cards project</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ccwc-custom-word-count"><a class="header" href="#ccwc-custom-word-count">CCWC (Custom Word Count)</a></h1>
 <p>A Go implementation of the Unix/Linux <code>wc</code> command that counts bytes, lines, words, and characters in text files.</p>
-<h2 id="features-1"><a class="header" href="#features-1">Features</a></h2>
+<h2 id="features"><a class="header" href="#features">Features</a></h2>
 <ul>
 <li>Count bytes in a file (<code>-c</code>)</li>
 <li>Count lines in a file (<code>-l</code>)</li>
@@ -9742,7 +10947,7 @@ DB_NAME=urlshortener
 <li>Support for reading from both files and standard input (stdin)</li>
 <li>Default mode that displays line, word, and byte counts together</li>
 </ul>
-<h2 id="installation-1"><a class="header" href="#installation-1">Installation</a></h2>
+<h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
 <ol>
 <li>Ensure you have Go installed on your system</li>
 <li>Navigate to the project directory:</li>
@@ -9754,7 +10959,7 @@ DB_NAME=urlshortener
 </ol>
 <pre><code class="language-bash">go build -o ccwc ./cmd/ccwc
 </code></pre>
-<h2 id="usage-1"><a class="header" href="#usage-1">Usage</a></h2>
+<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
 <h3 id="basic-usage"><a class="header" href="#basic-usage">Basic Usage</a></h3>
 <pre><code class="language-bash">./ccwc [options] [filename]
 </code></pre>
@@ -9798,7 +11003,7 @@ DB_NAME=urlshortener
 </ol>
 <pre><code class="language-bash">cat testdata/test.txt | ./ccwc -m
 </code></pre>
-<h2 id="project-structure-1"><a class="header" href="#project-structure-1">Project Structure</a></h2>
+<h2 id="project-structure"><a class="header" href="#project-structure">Project Structure</a></h2>
 <pre><code>mini-projects/ccwc/
 ├── cmd/
 │   └── ccwc/
@@ -9832,8 +11037,94 @@ DB_NAME=urlshortener
 </ul>
 </li>
 </ol>
-<h2 id="contributing-1"><a class="header" href="#contributing-1">Contributing</a></h2>
+<h2 id="contributing"><a class="header" href="#contributing">Contributing</a></h2>
 <p>Contributions are welcome! Please feel free to submit a Pull Request.</p>
+<div style="break-before: page; page-break-before: always;"></div><p>[<strong>Author:</strong> @hasanmubin
+<strong>Date:</strong> 2025-06-19
+<strong>Category:</strong> e.g., mini-projects/GitPulse
+<strong>Tags:</strong> [go, GitPulse, mini-projects]
+]</p>
+<h1 id="gitpulse---a-github-activity-tracker-cli-"><a class="header" href="#gitpulse---a-github-activity-tracker-cli-">GitPulse - A GitHub Activity Tracker CLI 🧑‍💻</a></h1>
+<p>A simple command-line tool that fetches and displays the recent public activity of any GitHub user using the <a href="https://api.github.com/">GitHub Events API</a>.
+Built with Go.</p>
+<hr />
+<h2 id="-features-1"><a class="header" href="#-features-1">🚀 Features</a></h2>
+<ul>
+<li>
+<p>Accepts GitHub username as a command-line argument</p>
+</li>
+<li>
+<p>Fetches recent activity from: <code>https://api.github.com/users/&lt;username&gt;/events</code></p>
+</li>
+<li>
+<p>Displays:</p>
+<ul>
+<li>Push events (e.g., number of commits pushed to a repo)</li>
+<li>Issues opened</li>
+<li>Repositories starred</li>
+<li>And more...</li>
+</ul>
+</li>
+<li>
+<p>Gracefully handles errors such as:</p>
+<ul>
+<li>Invalid GitHub usernames</li>
+<li>Unexpected data formats</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="-prerequisites"><a class="header" href="#-prerequisites">📦 Prerequisites</a></h2>
+<ul>
+<li><a href="https://golang.org/dl/">Go</a> installed (version 1.18 or above recommended)</li>
+</ul>
+<hr />
+<h2 id="-setup"><a class="header" href="#-setup">🛠️ Setup</a></h2>
+<ol>
+<li>
+<p><strong>Initialize a Go module</strong>:</p>
+<pre><code class="language-bash"> go mod init GitPulse
+</code></pre>
+</li>
+<li>
+<p><strong>Build the application</strong>:</p>
+<pre><code class="language-bash">go build -o github-activity
+</code></pre>
+<p>This will create a binary file named <code>github-activity</code>.</p>
+</li>
+</ol>
+<hr />
+<h2 id="-usage"><a class="header" href="#-usage">🧑‍💻 Usage</a></h2>
+<pre><code class="language-bash">./github-activity &lt;github-username&gt;
+</code></pre>
+<h3 id="example-5"><a class="header" href="#example-5">Example:</a></h3>
+<pre><code class="language-bash">./github-activity kamranahmedse
+</code></pre>
+<h3 id="sample-output"><a class="header" href="#sample-output">Sample Output:</a></h3>
+<pre><code>Pushed 3 commits to kamranahmedse/developer-roadmap
+Opened a new issue in kamranahmedse/developer-roadmap
+Starred kamranahmedse/developer-roadmap
+</code></pre>
+<hr />
+<h2 id="-error-handling"><a class="header" href="#-error-handling">🛯️ Error Handling</a></h2>
+<ul>
+<li>
+<p>Invalid username or no recent activity? You’ll get:</p>
+<pre><code>Error: user not found or has no recent public activity.
+</code></pre>
+</li>
+<li>
+<p>Internet down? API fails? You’ll get a meaningful error message instead of a crash.</p>
+</li>
+</ul>
+<hr />
+<h2 id="-future-improvements-optional-ideas"><a class="header" href="#-future-improvements-optional-ideas">🌱 Future Improvements (Optional Ideas)</a></h2>
+<ul>
+<li>Filter by specific event type (<code>PushEvent</code>, <code>IssuesEvent</code>, etc.)</li>
+<li>Cache results locally to reduce API calls</li>
+<li>Display output in a more structured or colorized format</li>
+<li>Explore other endpoints like <code>/repos</code>, <code>/followers</code>, <code>/starred</code>, etc.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><p>🧩 Project: Build Your Own JSON Parser (Step 1)</p>
 <p>Imagine JSON like Lego blocks that computers use to send and understand data. In this project, we’re learning how to read those blocks and say: “Yep, this is built correctly!” or “Nope, something’s wrong!”</p>
 <p>⸻</p>
@@ -10048,14 +11339,14 @@ docker run -it --name go-debug jsiqbal/go-debug-ready
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="todo-cli"><a class="header" href="#todo-cli">Todo CLI</a></h1>
 <p>A simple command-line interface (CLI) application for managing your to-do tasks, built with Go.</p>
-<h2 id="features-2"><a class="header" href="#features-2">Features</a></h2>
+<h2 id="features-1"><a class="header" href="#features-1">Features</a></h2>
 <ul>
 <li>Add new tasks</li>
 <li>List all tasks (with --all flag for completed tasks)</li>
 <li>Mark tasks as completed</li>
 <li>Delete tasks</li>
 </ul>
-<h2 id="project-structure-2"><a class="header" href="#project-structure-2">Project Structure</a></h2>
+<h2 id="project-structure-1"><a class="header" href="#project-structure-1">Project Structure</a></h2>
 <pre><code>todo-cli/
 ├── cmd/
 │   └── tasks/
@@ -10065,7 +11356,7 @@ docker run -it --name go-debug jsiqbal/go-debug-ready
         ├── task.go
         └── storage.go
 </code></pre>
-<h2 id="installation-2"><a class="header" href="#installation-2">Installation</a></h2>
+<h2 id="installation-1"><a class="header" href="#installation-1">Installation</a></h2>
 <ol>
 <li>Clone the repository:
 <pre><code class="language-bash">git clone https://github.com/OxRokib/bgce-archive.git
@@ -10080,7 +11371,7 @@ docker run -it --name go-debug jsiqbal/go-debug-ready
 </code></pre>
 </li>
 </ol>
-<h2 id="usage-2"><a class="header" href="#usage-2">Usage</a></h2>
+<h2 id="usage-1"><a class="header" href="#usage-1">Usage</a></h2>
 <h3 id="add-a-task"><a class="header" href="#add-a-task">Add a Task</a></h3>
 <pre><code class="language-bash">./todo add "Your task description"
 </code></pre>
@@ -10097,8 +11388,213 @@ docker run -it --name go-debug jsiqbal/go-debug-ready
 <h3 id="delete-a-task"><a class="header" href="#delete-a-task">Delete a Task</a></h3>
 <pre><code class="language-bash">./todo delete &lt;task-id&gt;
 </code></pre>
-<h2 id="contributing-2"><a class="header" href="#contributing-2">Contributing</a></h2>
+<h2 id="contributing-1"><a class="header" href="#contributing-1">Contributing</a></h2>
 <p>Contributions are welcome! Please feel free to submit a Pull Request.</p>
+<div style="break-before: page; page-break-before: always;"></div><pre><code class="language-markdown"># UDP Server in C
+
+This is a simple UDP server program written in C. It binds to `127.0.0.1` on port `5501` and listens for incoming datagrams.
+
+## Files
+
+- `main.c` : The UDP server code.
+
+## Requirements
+
+- GCC or any C compiler
+- Linux or macOS (or WSL on Windows)
+
+## How to Compile and Run
+
+1. **Compile:**
+
+```bash
+gcc main.c -o udp_server
+</code></pre>
+<ol start="2">
+<li><strong>Run:</strong></li>
+</ol>
+<pre><code class="language-bash">./udp_server
+</code></pre>
+<p>It will start and wait for incoming UDP packets.</p>
+<h2 id="code-explanation-brief"><a class="header" href="#code-explanation-brief">Code Explanation (Brief)</a></h2>
+<ul>
+<li><strong>socket()</strong> – creates a UDP socket.</li>
+<li><strong>bind()</strong> – binds to <code>127.0.0.1:5501</code>.</li>
+<li><strong>recvfrom()</strong> – receives data from any UDP client.</li>
+<li><strong>printf()</strong> – prints the received message.</li>
+</ul>
+<h2 id="example-client-testing"><a class="header" href="#example-client-testing">Example Client (Testing)</a></h2>
+<p>To test quickly, use <code>netcat</code> as a UDP client:</p>
+<pre><code class="language-bash">echo "Hello Server" | nc -u 127.0.0.1 5501
+</code></pre>
+<p>Or write your own simple C client to send a datagram to port <code>5501</code>.</p>
+<h2 id="reference"><a class="header" href="#reference">Reference</a></h2>
+<p><a href="https://github.com/nikhilroxtomar/UDP-Client-Server-Program-in-C">UDP Client-Server Program in C</a></p>
+<hr />
+<h3 id="notes"><a class="header" href="#notes">Notes</a></h3>
+<ul>
+<li>Change <code>127.0.0.1</code> to <code>0.0.0.0</code> to bind on all interfaces.</li>
+<li>Always handle errors in production-grade code (<code>if (sockfd &lt; 0) { perror("socket failed"); exit(1); }</code> etc).</li>
+</ul>
+<hr />
+<p>Feel free to modify and extend this as needed for your networking practice or system programming portfolio.</p>
+<pre><code></code></pre>
+<div style="break-before: page; page-break-before: always;"></div><pre><code class="language-markdown"># Simple UDP Server in Node.js
+
+This is a **minimal UDP server** built using Node.js `dgram` module. It listens on `127.0.0.1:41234` and optionally replies back to the client.
+
+## Files
+
+- `server.js` : Contains the UDP server code.
+
+## Requirements
+
+- Node.js (v12+ recommended)
+- npm
+
+## How to Run
+
+1. **Install dependencies (if any)**
+
+This script uses only core Node.js modules, so no installation is required. But initialize your project for good practice:
+
+```bash
+npm init -y
+</code></pre>
+<ol start="2">
+<li><strong>Run the server</strong></li>
+</ol>
+<pre><code class="language-bash">node server.js
+</code></pre>
+<p>You should see:</p>
+<pre><code>UDP Server listening on 127.0.0.1:41234
+</code></pre>
+<h2 id="code-explanation-brief-1"><a class="header" href="#code-explanation-brief-1">Code Explanation (Brief)</a></h2>
+<ul>
+<li><strong>dgram.createSocket("udp4")</strong> – creates an IPv4 UDP socket.</li>
+<li><strong>server.on("message")</strong> – handles incoming datagrams.</li>
+<li><strong>server.send()</strong> – sends a reply back to the client.</li>
+<li><strong>server.bind()</strong> – binds the server to the specified port and host.</li>
+</ul>
+<h2 id="-testing-the-server"><a class="header" href="#-testing-the-server">📡 Testing the Server</a></h2>
+<h3 id="-using-netcat-nc"><a class="header" href="#-using-netcat-nc">🔧 Using netcat (nc)</a></h3>
+<p>Open a separate terminal and run:</p>
+<pre><code class="language-bash">echo "Hello from client" | nc -u 127.0.0.1 41234
+</code></pre>
+<p>You should see the server log the received message and send a reply.</p>
+<h3 id="-using-a-nodejs-udp-client"><a class="header" href="#-using-a-nodejs-udp-client">🔧 Using a Node.js UDP client</a></h3>
+<p>Create a simple <code>client.js</code>:</p>
+<pre><code class="language-js">import dgram from "dgram";
+
+const client = dgram.createSocket("udp4");
+const msg = Buffer.from("Hello server!");
+
+client.send(msg, 0, msg.length, 41234, "127.0.0.1", (err) =&gt; {
+    if (err) console.error(err);
+    else console.log("Message sent!");
+    client.close();
+});
+</code></pre>
+<p>Run it:</p>
+<pre><code class="language-bash">node client.js
+</code></pre>
+<h2 id="reference-1"><a class="header" href="#reference-1">Reference</a></h2>
+<ul>
+<li><a href="https://nodejs.org/api/dgram.html">Node.js dgram documentation</a></li>
+</ul>
+<hr />
+<h3 id="notes-1"><a class="header" href="#notes-1">Notes</a></h3>
+<ul>
+<li>For production use, handle errors and edge cases gracefully.</li>
+<li>Use <code>udp6</code> instead of <code>udp4</code> for IPv6 sockets.</li>
+<li>Adjust <code>HOST</code> to <code>0.0.0.0</code> if you want to accept messages from any network interface.</li>
+</ul>
+<hr />
+<p>Happy UDP hacking!</p>
+<pre><code></code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="url-shortener---go"><a class="header" href="#url-shortener---go">URL Shortener - Go</a></h1>
+<p>A simple URL shortening service built with Go and MySQL. This project allows users to generate short URLs and redirect to the original long URL using a unique key.</p>
+<h2 id="features-2"><a class="header" href="#features-2">Features</a></h2>
+<ul>
+<li>Generate short URLs with unique keys</li>
+<li>Redirect to the original URL</li>
+<li>MySQL integration for URL storage</li>
+<li>JSON-based HTTP API</li>
+<li>Environment variable support via <code>.env</code> file</li>
+</ul>
+<h2 id="project-structure-2"><a class="header" href="#project-structure-2">Project Structure</a></h2>
+<pre><code>UrlShortner-Go/
+├── config/            # Loads MySQL connection using env vars
+├── database/
+│   └── mysql.go       # MySQL operations for saving and retrieving URLs
+├── handlers/
+│   └── UrlHandler.go  # HTTP handlers for shortening and redirecting
+├── models/            # Request/response models
+├── utils/
+│   └── utils.go       # Random key generation
+├── .env               # Environment variables
+└── main.go            # Entry point of the server
+</code></pre>
+<h2 id="installation-2"><a class="header" href="#installation-2">Installation</a></h2>
+<ol>
+<li>
+<p>Clone the repository:</p>
+<pre><code class="language-bash">git clone https://github.com/0baydullah/UrlShortner-Go.git
+</code></pre>
+</li>
+<li>
+<p>Navigate to the project directory:</p>
+<pre><code class="language-bash">cd UrlShortner-Go
+</code></pre>
+</li>
+<li>
+<p>Set up your MySQL database and table:</p>
+<pre><code class="language-sql">CREATE DATABASE urlshortener;
+USE urlshortener;
+CREATE TABLE urls (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    short_key VARCHAR(255) NOT NULL UNIQUE,
+    original_url TEXT NOT NULL
+);
+</code></pre>
+</li>
+<li>
+<p>Create a <code>.env</code> file in the root directory:</p>
+<pre><code class="language-env">DB_USER=your_db_username
+DB_PASSWORD=your_db_password
+DB_HOST=localhost
+DB_PORT=3306
+DB_NAME=urlshortener
+</code></pre>
+</li>
+<li>
+<p>Run the application:</p>
+<pre><code class="language-bash">go run main.go
+</code></pre>
+</li>
+</ol>
+<h2 id="usage-2"><a class="header" href="#usage-2">Usage</a></h2>
+<h3 id="shorten-a-url"><a class="header" href="#shorten-a-url">Shorten a URL</a></h3>
+<p>Send a <code>POST</code> request to <code>/shorten</code>:</p>
+<pre><code class="language-bash">curl -X POST http://localhost:8081/shorten -H "Content-Type: application/json" -d '{"url": "https://example.com"}'
+</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  "key": "abc123",
+  "url": "https://example.com",
+  "shortUrl": "http://localhost:8081/abc123"
+}
+</code></pre>
+<p>or If you want to  test it you can use <code>PostMan</code> too! ;-)</p>
+<h3 id="here-is-a-preview-from-postman-had-been-hosted-on-a-free-vps-maybe-expired-already"><a class="header" href="#here-is-a-preview-from-postman-had-been-hosted-on-a-free-vps-maybe-expired-already">Here is a preview from Postman (had been hosted on a free VPS, maybe expired already)</a></h3>
+<p><img src="https://github.com/0baydullah/UrlShortner-Go/blob/main/image.png?raw=true" alt="App Preview" /></p>
+<h3 id="redirect-to-original-url"><a class="header" href="#redirect-to-original-url">Redirect to Original URL</a></h3>
+<p>Visit the shortened URL:</p>
+<pre><code class="language-bash">http://localhost:8081/abc123
+</code></pre>
+<p>This will redirect to <code>https://example.com</code>.</p>
+<h2 id="contributing-2"><a class="header" href="#contributing-2">Contributing</a></h2>
+<p>Contributions are welcome! Feel free to open issues or submit pull requests.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="-কমপিটিটিভ-পরোগরামিং-গাইড-cp-guide-in-bengali"><a class="header" href="#-কমপিটিটিভ-পরোগরামিং-গাইড-cp-guide-in-bengali">🧠 কম্পিটিটিভ প্রোগ্রামিং গাইড (CP Guide in Bengali)</a></h1>
 <blockquote>
 <p>📘 <em>এই গাইডটি তৈরি করা হয়েছে বাংলায় CP শেখার সুবিধার্থে। টেকনিক্যাল টার্ম এবং কোড ইংরেজিতে রাখা হয়েছে যাতে ইন্টারন্যাশনাল স্ট্যান্ডার্ড ফলো করা যায়।</em></p>

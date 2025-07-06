@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Urlshortner - BGCE ARCHIVE</title>
+        <title>Golang014 What Is Scope - BGCE ARCHIVE</title>
 
 
         <!-- Custom HTML head -->
@@ -12,33 +12,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="../../favicon.svg">
-        <link rel="shortcut icon" href="../../favicon.png">
-        <link rel="stylesheet" href="../../css/variables.css">
-        <link rel="stylesheet" href="../../css/general.css">
-        <link rel="stylesheet" href="../../css/chrome.css">
-        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
 
         <!-- Provide site root and default themes to javascript -->
         <script>
-            const path_to_root = "../../";
+            const path_to_root = "../../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../../toc.js"></script>
+        <script src="../../../toc.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -102,7 +102,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
             </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -137,7 +137,7 @@
                     <h1 class="menu-title">BGCE ARCHIVE</h1>
 
                     <div class="right-buttons">
-                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
                         <a href="https://github.com/NesoHQ/bgce-archive.git" title="Git repository" aria-label="Git repository">
@@ -169,99 +169,145 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="url-shortener---go"><a class="header" href="#url-shortener---go">URL Shortener - Go</a></h1>
-<p>A simple URL shortening service built with Go and MySQL. This project allows users to generate short URLs and redirect to the original long URL using a unique key.</p>
-<h2 id="features"><a class="header" href="#features">Features</a></h2>
-<ul>
-<li>Generate short URLs with unique keys</li>
-<li>Redirect to the original URL</li>
-<li>MySQL integration for URL storage</li>
-<li>JSON-based HTTP API</li>
-<li>Environment variable support via <code>.env</code> file</li>
-</ul>
-<h2 id="project-structure"><a class="header" href="#project-structure">Project Structure</a></h2>
-<pre><code>UrlShortner-Go/
-├── config/            # Loads MySQL connection using env vars
-├── database/
-│   └── mysql.go       # MySQL operations for saving and retrieving URLs
-├── handlers/
-│   └── UrlHandler.go  # HTTP handlers for shortening and redirecting
-├── models/            # Request/response models
-├── utils/
-│   └── utils.go       # Random key generation
-├── .env               # Environment variables
-└── main.go            # Entry point of the server
+                        <h1 id="-class-14-what-is-scope"><a class="header" href="#-class-14-what-is-scope">🧱 Class 14: What is Scope</a></h1>
+<p>Scope বলতে code এর part বুঝায় যেখানে একটি নির্দিষ্ট variable কে access করা যাবে।</p>
+<h2 id="-কলাসে-বযবহৃত-কোড"><a class="header" href="#-কলাসে-বযবহৃত-কোড">📘 ক্লাসে ব্যবহৃত কোড</a></h2>
+<pre><code class="language-go">package main
+
+import "fmt"
+
+var (
+	a = 20
+	b = 30
+)
+
+func add(x int, y int) {
+	z := x + y
+	fmt.Println(z)
+}
+
+func main() {
+	p := 30
+	q := 40
+
+	add(p, q)
+
+	add(a, b)
+
+	add(a, p)
+
+	add(b, z) // ❌ error!
+}
+
 </code></pre>
-<h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
-<ol>
-<li>
-<p>Clone the repository:</p>
-<pre><code class="language-bash">git clone https://github.com/0baydullah/UrlShortner-Go.git
+<h2 id="-code-explain"><a class="header" href="#-code-explain">✨ Code Explain</a></h2>
+<pre><code class="language-go">var (
+	a = 20
+	b = 30
+)
 </code></pre>
-</li>
-<li>
-<p>Navigate to the project directory:</p>
-<pre><code class="language-bash">cd UrlShortner-Go
+<p>🔸 RAM এ একটা জায়গায় এ variable গুলো রাখা হয় যেটাকে <strong>global memory</strong> বলা হয়।</p>
+<p>🔸 <code>a</code> এবং <code>b</code> এই দুইটা RAM এর global scope এ declare করা হয়েছে।</p>
+<p>🔸 যেকোন ফাংশনের ভেতর থেকে এগুলোকে ব্যবহার করা যাবে।</p>
+<blockquote>
+<p>🧠 যেসব ভ্যারিয়েবল <code>main()</code> বা অন্য কোনো ফাংশনের বাইরে delare করা হয় - সেগুলো global.</p>
+</blockquote>
+<p>👉 <code>main()</code> এবং <code>add()</code> function ও RAM এর global scope এ থাকে (বুঝার সুবিধার্থে)।</p>
+<h3 id="-শুরুতে-ram-এ-যা-থাকে"><a class="header" href="#-শুরুতে-ram-এ-যা-থাকে">💡 শুরুতে RAM এ যা থাকে</a></h3>
+<pre><code class="language-plaintext">				    RAM
++------------------------------------------+
+| 20 | 30 | ---- |---- |   |   |   |   |   |
++------------------------------------------+
+   a    b   add()  main()
+
+				 global
 </code></pre>
-</li>
-<li>
-<p>Set up your MySQL database and table:</p>
-<pre><code class="language-sql">CREATE DATABASE urlshortener;
-USE urlshortener;
-CREATE TABLE urls (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    short_key VARCHAR(255) NOT NULL UNIQUE,
-    original_url TEXT NOT NULL
-);
-</code></pre>
-</li>
-<li>
-<p>Create a <code>.env</code> file in the root directory:</p>
-<pre><code class="language-env">DB_USER=your_db_username
-DB_PASSWORD=your_db_password
-DB_HOST=localhost
-DB_PORT=3306
-DB_NAME=urlshortener
-</code></pre>
-</li>
-<li>
-<p>Run the application:</p>
-<pre><code class="language-bash">go run main.go
-</code></pre>
-</li>
-</ol>
-<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
-<h3 id="shorten-a-url"><a class="header" href="#shorten-a-url">Shorten a URL</a></h3>
-<p>Send a <code>POST</code> request to <code>/shorten</code>:</p>
-<pre><code class="language-bash">curl -X POST http://localhost:8081/shorten -H "Content-Type: application/json" -d '{"url": "https://example.com"}'
-</code></pre>
-<p><strong>Response:</strong></p>
-<pre><code class="language-json">{
-  "key": "abc123",
-  "url": "https://example.com",
-  "shortUrl": "http://localhost:8081/abc123"
+<blockquote>
+<p>Go প্রোগ্রামে <code>main()</code> ফাংশন না থাকলে, প্রোগ্রাম চলবে না।
+<code>main()</code> হচ্ছে execution শুরু করার জায়গা; ওটা ছাড়া Go বুঝতে পারে না কোথা থেকে শুরু করবে।</p>
+</blockquote>
+<h3 id="main-execution"><a class="header" href="#main-execution"><code>main()</code> Execution</a></h3>
+<pre><code class="language-go">
+func main() {
+	p := 30
+	q := 40
+
+	add(p, q)
+
+	add(a, b)
+
+	add(a, p)
+
+	add(b, z)
 }
 </code></pre>
-<p>or If you want to  test it you can use <code>PostMan</code> too! ;-)</p>
-<h3 id="here-is-a-preview-from-postman-had-been-hosted-on-a-free-vps-maybe-expired-already"><a class="header" href="#here-is-a-preview-from-postman-had-been-hosted-on-a-free-vps-maybe-expired-already">Here is a preview from Postman (had been hosted on a free VPS, maybe expired already)</a></h3>
-<p><img src="https://github.com/0baydullah/UrlShortner-Go/blob/main/image.png?raw=true" alt="App Preview" /></p>
-<h3 id="redirect-to-original-url"><a class="header" href="#redirect-to-original-url">Redirect to Original URL</a></h3>
-<p>Visit the shortened URL:</p>
-<pre><code class="language-bash">http://localhost:8081/abc123
+<p>🔸RAM এ <code>main()</code> এর জন্য আলাদা জায়গা দখল করে</p>
+<p>🔸p ও q হলো <code>main()</code> এর local variable</p>
+<p>🔸এগুলো <code>main()</code> এর বাইরে থেকে ব্যবহার করা যাবে না</p>
+<pre><code class="language-plaintext">				    RAM
++------------------------------------------+
+| 30 | 40 |  |  |  |  |  |  |  |  |  |  |  |
++------------------------------------------+
+  p    q
+
+  				main()
 </code></pre>
-<p>This will redirect to <code>https://example.com</code>.</p>
-<h2 id="contributing"><a class="header" href="#contributing">Contributing</a></h2>
-<p>Contributions are welcome! Feel free to open issues or submit pull requests.</p>
+<ul>
+<li><code>main()</code> এ <code>add()</code> function না থাকায় <code>add()</code> কে global এ খুঁজে</li>
+</ul>
+<h3 id="add-execution"><a class="header" href="#add-execution"><code>add()</code> Execution</a></h3>
+<pre><code class="language-go">func add(x int, y int) {
+	z := x + y
+	fmt.Println(z)
+}
+</code></pre>
+<p>🔸 RAM এ <code>add()</code> এর জন্য আলাদা জায়গা নেয়</p>
+<p>🔸 <code>x</code>, <code>y</code> &amp; <code>z</code> হল <code>add()</code> এর local variable</p>
+<p>🔸 <code>x</code> এবং <code>y</code> হল <code>add()</code> function এর parameter</p>
+<p>🔸<code>add()</code> function শেষ হলে RAM থেকে এদের মুছে ফেলা হয়।</p>
+<pre><code class="language-plaintext">				    RAM
++------------------------------------------+
+| 30 | 40 | 70 |  |  |  |  |  |  |  |  |  |
++------------------------------------------+
+  x    y    z
+
+  				add()
+</code></pre>
+<h3 id="-যদি-সকোপ-ভুলে-যাও"><a class="header" href="#-যদি-সকোপ-ভুলে-যাও">❌ যদি স্কোপ ভুলে যাও</a></h3>
+<pre><code class="language-go">func add(x int, y int) {
+	z := x + q
+	fmt.Println(z)
+}
+</code></pre>
+<p>🔸<code>q</code> variable <code>add()</code> এর local scope এ নেই</p>
+<p>🔸<code>q</code> -&gt; <code>main()</code> এর local variable হওয়ায় global scope এ পাওয়া যাবে না</p>
+<blockquote>
+<p>Scope এর বাইরের variable use করলে <code>undefined</code> compilation error দিবে।</p>
+</blockquote>
+<p><strong>Output:</strong></p>
+<pre><code class="language-go"># command-line-arguments
+./main.go:11:11: undefined: q
+</code></pre>
+<h2 id="-scope-rule"><a class="header" href="#-scope-rule">🧠 Scope Rule</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>কোথায় declare হয়েছে</th><th>কোথা থেকে accessible</th></tr></thead><tbody>
+<tr><td>ফাংশনের বাইরে (global)</td><td>সব ফাংশন থেকে access করা যায় ✅</td></tr>
+<tr><td>ফাংশনের ভিতরে (local)</td><td>শুধু সেই ফাংশনের ভিতরেই accessible ✅</td></tr>
+<tr><td>অন্য ফাংশনের ভিতর</td><td>বাইরে থেকে access করা যায় না ❌</td></tr>
+</tbody></table>
+</div>
+<p>[<strong>Author :</strong> @nazma98
+<strong>Date:</strong> 2025-06-13
+<strong>Category:</strong> interview-qa/class-wise ]</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../../mini-projects/Quantique/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../../interview-qna/class-wise/golang013-Why-Functions-Are-Needed/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../../mini-projects/ccwc/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../../interview-qna/class-wise/golang015-Local-Scope-and-Block/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -271,11 +317,11 @@ DB_NAME=urlshortener
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../../mini-projects/Quantique/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../../interview-qna/class-wise/golang013-Why-Functions-Are-Needed/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../../mini-projects/ccwc/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../../interview-qna/class-wise/golang015-Local-Scope-and-Block/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -290,13 +336,13 @@ DB_NAME=urlshortener
         </script>
 
 
-        <script src="../../elasticlunr.min.js"></script>
-        <script src="../../mark.min.js"></script>
-        <script src="../../searcher.js"></script>
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
 
-        <script src="../../clipboard.min.js"></script>
-        <script src="../../highlight.js"></script>
-        <script src="../../book.js"></script>
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
 
         <!-- Custom JS scripts -->
 
