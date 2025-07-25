@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Commit Strategy - BGCE ARCHIVE</title>
+        <title>Test Server - BGCE ARCHIVE</title>
 
 
         <!-- Custom HTML head -->
@@ -12,34 +12,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="../favicon.svg">
-        <link rel="shortcut icon" href="../favicon.png">
-        <link rel="stylesheet" href="../css/variables.css">
-        <link rel="stylesheet" href="../css/general.css">
-        <link rel="stylesheet" href="../css/chrome.css">
-        <link rel="stylesheet" href="../css/print.css" media="print">
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="../fonts/fonts.css">
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
 
         <!-- Provide site root and default themes to javascript -->
         <script>
-            const path_to_root = "../";
+            const path_to_root = "../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex.js";
+            window.path_to_searchindex_js = "../../searchindex.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc.js"></script>
+        <script src="../../toc.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -106,7 +106,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
             </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -141,7 +141,7 @@
                     <h1 class="menu-title">BGCE ARCHIVE</h1>
 
                     <div class="right-buttons">
-                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
                         <a href="https://github.com/NesoHQ/bgce-archive.git" title="Git repository" aria-label="Git repository">
@@ -178,51 +178,95 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h3 id="-commit-strategy"><a class="header" href="#-commit-strategy">📌 <strong>COMMIT STRATEGY</strong></a></h3>
-<h4 id="-setup"><a class="header" href="#-setup">🔧 <strong>Setup</strong></a></h4>
-<pre><code class="language-bash">make setup-commit-hook
+                        <h1 id="-bgce-server-backend-api"><a class="header" href="#-bgce-server-backend-api">🛰️ BGCE Server (Backend API)</a></h1>
+<p>Welcome to the <strong>backend server</strong> powering the BGCE (Best Golang Community Ever) archive and control system.<br />
+This project serves as the foundation for category management, RBAC (Role-Based Access Control), and future API integrations — all written in <strong>Golang</strong> with simplicity and scalability in mind.</p>
+<hr />
+<h2 id="-project-structure"><a class="header" href="#-project-structure">📁 Project Structure</a></h2>
+<pre><code class="language-bash">/server
+├── main               # Main entry point for the server
+├── go.mod             # Go module file (defines module path, dependencies)
+│
+├── /categories        # Category API handlers
+│   ├── categories.go  # HTTP handlers for category management (GET/POST/etc)
+│
+├── /rbac              # Role-Based Access Control logic
+│   ├── superadmin.go  # RBAC logic to allow/disallow actions based on role
 </code></pre>
 <hr />
-<h4 id="-commit-message-format"><a class="header" href="#-commit-message-format">✅ <strong>Commit Message Format</strong></a></h4>
-<pre><code>[&lt;service&gt;] (&lt;type/feature-name&gt;): &lt;Capitalized short description&gt;
+<h2 id="-getting-started"><a class="header" href="#-getting-started">🚀 Getting Started</a></h2>
+<h3 id="1-clone-the-repo--enter-the-server-directory"><a class="header" href="#1-clone-the-repo--enter-the-server-directory">1. Clone the repo &amp; enter the <code>/server</code> directory</a></h3>
+<pre><code class="language-bash">git clone https://github.com/yourusername/bgce-archive.git
+cd bgce-archive/server
 </code></pre>
+<h3 id="2-initialize-dependencies-if-needed"><a class="header" href="#2-initialize-dependencies-if-needed">2. Initialize dependencies (if needed)</a></h3>
+<pre><code class="language-bash">go mod tidy
+</code></pre>
+<h3 id="3-run-the-server"><a class="header" href="#3-run-the-server">3. Run the server</a></h3>
+<pre><code class="language-bash">go run main.go
+</code></pre>
+<blockquote>
+<p>✅ Server runs on: <code>http://localhost:8080</code></p>
+</blockquote>
 <hr />
-<h4 id="-allowed-types"><a class="header" href="#-allowed-types">💡 <strong>Allowed Types</strong></a></h4>
+<h2 id="-role-based-access-control-rbac"><a class="header" href="#-role-based-access-control-rbac">🔐 Role-Based Access Control (RBAC)</a></h2>
+<p>For now, <strong>Super Admin</strong> check is a simple function in <code>rbac/superadmin.go</code>:</p>
+<pre><code class="language-go">func IsSuperAdmin(r *http.Request) bool
+</code></pre>
+<p>This will later be extended using JWT tokens, sessions, or other proper authentication systems.</p>
+<hr />
+<h2 id="-api-endpoints-wip"><a class="header" href="#-api-endpoints-wip">🧩 API Endpoints (WIP)</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Endpoint</th><th>Method</th><th>Description</th><th>Access</th></tr></thead><tbody>
+<tr><td><code>/</code></td><td>GET</td><td>Welcome route</td><td>Public</td></tr>
+<tr><td><code>/categories</code></td><td>GET</td><td>List all categories</td><td>Super Admin</td></tr>
+<tr><td><code>/categories</code></td><td>POST</td><td>Create a new category</td><td>Super Admin</td></tr>
+<tr><td><code>/categories</code></td><td>PUT</td><td>Update a category</td><td>Super Admin</td></tr>
+<tr><td><code>/categories</code></td><td>DELETE</td><td>Delete a category</td><td>Super Admin</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="-contributing"><a class="header" href="#-contributing">🤝 Contributing</a></h2>
+<p>We welcome PRs, ideas, and improvements! Here's how to get started:</p>
+<ol>
+<li><strong>Fork</strong> the repo</li>
+<li>Create a new branch using:
+<pre><code class="language-bash">git switch -c feature/your-feature-name
+</code></pre>
+</li>
+<li>Add your changes (modular, readable, minimal)</li>
+<li><strong>If adding route logic</strong>, place it under <code>/categories/</code></li>
+<li><strong>If adding role or auth logic</strong>, place it under <code>/rbac/</code></li>
+<li>Push and open a PR with a clear title and message</li>
+</ol>
+<blockquote>
+<p>📌 <em>Keep each PR focused — one feature or fix per PR, please!</em></p>
+</blockquote>
+<hr />
+<h2 id="-roadmap-wip-ideas"><a class="header" href="#-roadmap-wip-ideas">🔮 Roadmap (WIP Ideas)</a></h2>
 <ul>
-<li><code>feat</code> – New feature or functionality</li>
-<li><code>fix</code> – Bug fix or issue correction</li>
-<li><code>patch</code> – Minor updates or hotfixes</li>
-<li><code>docs</code> – Documentation changes</li>
-<li><code>style</code> – Code style changes (formatting, linting)</li>
-<li><code>refactor</code> – Code restructuring without behavior change</li>
-<li><code>test</code> – Adding or updating tests</li>
-<li><code>chore</code> – Build tasks, CI configs, or other maintenance</li>
+<li>✅ Clean route structure using <code>http.ServeMux</code></li>
+<li>🔐 Real token-based Super Admin checks (JWT/session)</li>
+<li>📦 Persistent DB (PostgreSQL or SQLite)</li>
+<li>🧩 Problem management endpoints</li>
+<li>📊 Admin dashboard (frontend)</li>
+<li>🔄 JSON response formatting</li>
 </ul>
 <hr />
-<h4 id="-example-commits"><a class="header" href="#-example-commits">🧪 <strong>Example Commits</strong></a></h4>
-<pre><code>[inventory] (feat/add-product): Add product listing endpoint
-[auth] (fix/token-expiry): Correct token expiry issue
-[payment] (patch/update-paypal): Update PayPal integration
-[docs] (docs/readme): Update CLI tool usage instructions
-</code></pre>
-<hr />
-<p>✅ <strong>Notes for contributors:</strong></p>
-<ul>
-<li><strong>Service</strong>: Use the relevant service or package name in square brackets.</li>
-<li><strong>Type/feature-name</strong>: Specify the type and concise feature name in parentheses.</li>
-<li><strong>Description</strong>: Must start with an uppercase letter and clearly state the change.</li>
-</ul>
-<hr />
+<h2 id="-maintained-by"><a class="header" href="#-maintained-by">🧑‍💻 Maintained By</a></h2>
+<h2 id="bgce-mod-team"><a class="header" href="#bgce-mod-team">BGCE Mod Team</a></h2>
+<blockquote>
+<p><em>If you break it, you fix it. If you build it, name it something cool.</em> 😎</p>
+</blockquote>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../contribution-guide/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../mini-projects/program-counter/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../contribution-guide/CONTRIBUTING.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../mini-projects/todo-cli/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -232,11 +276,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../contribution-guide/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../mini-projects/program-counter/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../contribution-guide/CONTRIBUTING.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../mini-projects/todo-cli/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -251,13 +295,13 @@
         </script>
 
 
-        <script src="../elasticlunr.min.js"></script>
-        <script src="../mark.min.js"></script>
-        <script src="../searcher.js"></script>
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
 
-        <script src="../clipboard.min.js"></script>
-        <script src="../highlight.js"></script>
-        <script src="../book.js"></script>
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
 
         <!-- Custom JS scripts -->
 
