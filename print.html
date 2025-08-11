@@ -9057,16 +9057,16 @@ go func() {
 </ul>
 <h3 id="conclusion-1"><a class="header" href="#conclusion-1">Conclusion</a></h3>
 <p>Goroutines are praised for their <strong>lightweight nature</strong>, <strong>fast performance</strong>, and <strong>simple programming model</strong>, making them more efficient and scalable than Java/C++ threads, Python’s threading/multiprocessing, and Node.js’s event loop for most workloads. Channels and the Go scheduler eliminate much of the complexity of traditional concurrency, enabling developers to write robust, high-performance concurrent programs with ease. While Java and C++ offer powerful concurrency tools, they require more boilerplate and tuning, and Python’s GIL and Node.js’s single-threaded model limit their versatility. Go strikes a unique balance, making it a preferred choice for concurrent systems like servers, microservices, and distributed applications.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>[<strong>Author:</strong> @mdimamhosen
+<div style="break-before: page; page-break-before: always;"></div><p>[<strong>Author:</strong> @mdimamhosen, @mahabubulhasibshawon
 <strong>Date:</strong> 2025-04-22
 <strong>Category:</strong> interview-qa/Higher-Order
 <strong>Tags:</strong> [go, First-Order, Higher-Order]
 ]</p>
 <h2 id="first-order-function-and-higher-order-function"><a class="header" href="#first-order-function-and-higher-order-function">First-Order Function and Higher-Order Function</a></h2>
 <h3 id="first-order-function"><a class="header" href="#first-order-function">First-Order Function</a></h3>
-<p>A <strong>first-order function</strong> is a function that operates on basic data types (integers, strings, etc.) and does not take other functions as arguments nor returns a function as its result.</p>
+<p><strong>First-Order Function</strong> এমন একটি function, যা সাধারণ data type (যেমন int, string ইত্যাদি) এর উপর কাজ করে এবং কোনো function কে ইনপুট হিসেবে নেয় না বা return করে না।</p>
 <h3 id="higher-order-function"><a class="header" href="#higher-order-function">Higher-Order Function</a></h3>
-<p>A <strong>higher-order function</strong> is a function that can accept other functions as arguments and/or return a function as its result. Higher-order functions are key in functional programming paradigms.</p>
+<p><strong>Higher-Order Function</strong> এমন function, যা অন্য function কে argument হিসেবে নিতে পারে এবং/অথবা function return করতে পারে। Higher-Order Function <strong>functional programming paradigm</strong> এ খুব গুরুত্বপূর্ণ ভূমিকা রাখে।</p>
 <h3 id="example-code"><a class="header" href="#example-code">Example Code</a></h3>
 <h4 id="first-order-function-1"><a class="header" href="#first-order-function-1">First-Order Function</a></h4>
 <pre><code class="language-go">package main
@@ -9104,13 +9104,13 @@ func main() {
 }
 </code></pre>
 <h3 id="logic-in-mathematics"><a class="header" href="#logic-in-mathematics">Logic in Mathematics</a></h3>
-<p>In discrete mathematics, logic is used to define and analyze the properties and relationships of objects.</p>
+<p>Discrete Mathmatics-এ, logic ব্যবহার করা হয় object এর property এবং তাদের relation বিশ্লেষণ করার জন্য।</p>
 <ol>
-<li><strong>Object</strong>: An entity that has a physical existence (e.g., people, animals).</li>
-<li><strong>Property</strong>: Characteristics or attributes of objects (e.g., color, height).</li>
-<li><strong>Relation</strong>: Describes how objects are related to each other (e.g., "all customers must pay their pizza bills").</li>
+<li><strong>Object</strong>: এমন কিছু যার বাস্তব অস্তিত্ব আছে (যেমন: মানুষ, প্রাণী)</li>
+<li><strong>Property</strong>: Object-এর বৈশিষ্ট্য বা গুণ (যেমন: রং, উচ্চতা)</li>
+<li><strong>Relation</strong>: কিভাবে object-গুলো একে অপরের সাথে সম্পর্কযুক্ত (যেমন: "all customers must pay their pizza bills")</li>
 </ol>
-<p>Example:</p>
+<p>উদাহরণ:</p>
 <ul>
 <li>
 <p><strong>Object</strong>: Customer</p>
@@ -9122,26 +9122,26 @@ func main() {
 <p><strong>Relation</strong>: Must pay the bill</p>
 </li>
 <li>
-<p><strong>First-Order Logic</strong>: Works with objects, properties, and relations.</p>
+<p><strong>First-Order Logic</strong>: Object, property এবং relation নিয়ে কাজ করে।</p>
 </li>
 <li>
-<p><strong>Higher-Order Logic</strong>: Works with relations between functions and operations.</p>
+<p><strong>Higher-Order Logic</strong>: function এর মধ্যকার relation বা operations নিয়ে কাজ করে।</p>
 </li>
 </ul>
-<p>In the context of functions:</p>
+<p>function এর ক্ষেত্রে:</p>
 <ul>
-<li><strong>First-Order Function</strong>: Operates directly on objects and their properties.</li>
-<li><strong>Higher-Order Function</strong>: Operates on relations between functions, allowing for more abstract and flexible operations.</li>
+<li><strong>First-Order Function</strong>: সরাসরি object ও তার properties এর উপর কাজ করে।</li>
+<li><strong>Higher-Order Function</strong>: function এর মধ্যকার relation নিয়ে কাজ করে, যেটা আরও abstract ও flexible operations করতে সাহায্য করে।</li>
 </ul>
 <h3 id="functional-paradigms"><a class="header" href="#functional-paradigms">Functional Paradigms</a></h3>
-<p>Functional programming is a programming paradigm where programs are constructed by applying and composing functions. It emphasizes <strong>pure functions</strong>, <strong>immutability</strong>, and <strong>higher-order functions</strong>.</p>
+<p>Functional programming এমন একটি programming paradigm যেখানে program গঠন করা হয় function apply এবং compose করার মাধ্যমে। এই paradigm জোর দেওয়া হয় <strong>pure functions</strong>, <strong>immutability</strong>, এবং <strong>higher-order functions</strong> এর উপর।</p>
 <ul>
-<li><strong>Pure Functions</strong>: Functions that always produce the same output for the same input and have no side effects.</li>
-<li><strong>Immutability</strong>: Data cannot be changed once it is created. New data structures are created with updated values.</li>
-<li><strong>First-Class Functions</strong>: Functions are treated as first-class citizens, meaning they can be assigned to variables, passed as arguments, and returned from other functions.</li>
-<li><strong>Higher-Order Functions</strong>: Functions that take other functions as arguments or return them as results.</li>
+<li><strong>Pure Functions</strong>: একই input সব সময় একই output দেয়, এবং কোনো side effect থাকে না।</li>
+<li><strong>Immutability</strong>: একবার data তৈরি হলে তা পরিবর্তন করা যায় না; পরিবর্তনের জন্য নতুন data তৈরি করা হয়।</li>
+<li><strong>First-Class Functions</strong>: function গুলোকে variable এ রাখা যায়, argument হিসেবে পাঠানো যায় এবং অন্য function থেকে return করা যায়।</li>
+<li><strong>Higher-Order Functions</strong>: functionগুলো অন্য function কে argument হিসেবে নিতে পারে বা return করতে পারে।</li>
 </ul>
-<p>Functional programming languages like <strong>Haskell</strong>, <strong>Racket</strong>, and <strong>Lisp</strong> provide powerful abstractions for working with functions.</p>
+<p><strong>Haskell</strong>, <strong>Racket</strong>, এবং <strong>Lisp</strong> এর মতো functional programming ভাষাগুলো function নিয়ে কাজ করার জন্য শক্তিশালী abstraction দেয়।</p>
 <h3 id="additional-example-code"><a class="header" href="#additional-example-code">Additional Example Code</a></h3>
 <h4 id="higher-order-function-returning-another-function"><a class="header" href="#higher-order-function-returning-another-function">Higher-Order Function Returning Another Function</a></h4>
 <pre><code class="language-go">package main
@@ -9189,8 +9189,8 @@ func main() {
 <h4 id="1-what-is-a-higher-order-function"><a class="header" href="#1-what-is-a-higher-order-function">1. <strong>What is a higher-order function?</strong></a></h4>
 <p><strong>Question</strong>: What is a higher-order function, and how does it work in Go?</p>
 <p><strong>Answer</strong>:
-A higher-order function is a function that either accepts other functions as parameters or returns a function.</p>
-<p>Example:</p>
+একটি higher-order function এমন function, যেটা অন্য function কে parameter হিসেবে নিতে পারে অথবা অন্য কোনো functionকে return করতে পারে অথবা উভয়ই করতে পারে।</p>
+<p>উদাহরণ:</p>
 <pre><code class="language-go">package main
 
 import "fmt"
@@ -9211,8 +9211,8 @@ func main() {
 <h4 id="2-what-is-a-first-order-function"><a class="header" href="#2-what-is-a-first-order-function">2. <strong>What is a first-order function?</strong></a></h4>
 <p><strong>Question</strong>: Explain a first-order function in Go.</p>
 <p><strong>Answer</strong>:
-A first-order function operates on basic data types and does not take other functions as parameters nor return functions.</p>
-<p>Example:</p>
+একটি first-order function হলো এমন function, যা শুধুমাত্র সাধারন data type নিয়ে কাজ করে এবং অন্য কোনো function কে parameter হিসেবে নেয় না বা return করে না।</p>
+<p>উদাহরণ:</p>
 <pre><code class="language-go">package main
 
 import "fmt"
@@ -9229,7 +9229,7 @@ func main() {
 <h4 id="3-can-you-create-a-function-that-returns-another-function"><a class="header" href="#3-can-you-create-a-function-that-returns-another-function">3. <strong>Can you create a function that returns another function?</strong></a></h4>
 <p><strong>Question</strong>: Write a function that returns another function and demonstrates its usage.</p>
 <p><strong>Answer</strong>:
-Yes, you can create a higher-order function that returns another function. Here's an example:</p>
+হ্যাঁ, একটি higher-order function তৈরি করা যায় যেটা আরেকটি function return করে।</p>
 <pre><code class="language-go">package main
 
 import "fmt"
@@ -9248,8 +9248,7 @@ func main() {
 <h4 id="4-what-is-an-anonymous-function-in-go"><a class="header" href="#4-what-is-an-anonymous-function-in-go">4. <strong>What is an anonymous function in Go?</strong></a></h4>
 <p><strong>Question</strong>: Show an example of an anonymous function in Go.</p>
 <p><strong>Answer</strong>:
-An anonymous function is a function defined without a name, often used for short-lived operations.</p>
-<p>Example:</p>
+Anonymous function হলো এমন একটি function যার নাম নেই। সাধারণত ছোট বা একবারের জন্য ব্যবহৃত কাজের ক্ষেত্রে এটি ব্যবহৃত হয়।</p>
 <pre><code class="language-go">package main
 
 import "fmt"
@@ -9263,8 +9262,7 @@ func main() {
 <h4 id="5-what-is-an-immediately-invoked-function-expression-iife-in-go"><a class="header" href="#5-what-is-an-immediately-invoked-function-expression-iife-in-go">5. <strong>What is an Immediately Invoked Function Expression (IIFE) in Go?</strong></a></h4>
 <p><strong>Question</strong>: Write a code example for an Immediately Invoked Function Expression (IIFE) in Go.</p>
 <p><strong>Answer</strong>:
-An IIFE is a function that is defined and immediately invoked.</p>
-<p>Example:</p>
+IIFE এমন একটি function যেটি define করার সাথে সাথেই invoke (call) করা হয়।</p>
 <pre><code class="language-go">package main
 
 import "fmt"
@@ -12596,6 +12594,120 @@ x/1i $pc            # বর্তমান ইনস্ট্রাকশনট
 <pre><code class="language-bash">docker rm -f go-debug
 docker run -it --name go-debug jsiqbal/go-debug-ready
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="-rock-paper-scissors-lizard-spock-go-edition"><a class="header" href="#-rock-paper-scissors-lizard-spock-go-edition">✊📄✂️🦎🖖 Rock-Paper-Scissors-Lizard-Spock (Go Edition)</a></h1>
+<blockquote>
+<p>A terminal-based game of <strong>Rock, Paper, Scissors, Lizard, Spock</strong> — written entirely in Go.<br />
+Inspired by <em>The Big Bang Theory</em> and designed to reduce the number of ties from the classic Rock-Paper-Scissors.</p>
+</blockquote>
+<hr />
+<h2 id="-game-modes"><a class="header" href="#-game-modes">🎮 Game Modes</a></h2>
+<p>This version supports:</p>
+<ul>
+<li><strong>Classic Mode</strong>: Rock-Paper-Scissors</li>
+<li><strong>Extended Mode</strong>: Rock-Paper-Scissors-Lizard-Spock</li>
+</ul>
+<p>The computer picks its move randomly, and you battle it out in the terminal.</p>
+<hr />
+<h2 id="-rules"><a class="header" href="#-rules">🧩 Rules</a></h2>
+<blockquote>
+<p><em>As explained by Sheldon Cooper:</em></p>
+</blockquote>
+<ul>
+<li>Scissors cuts Paper</li>
+<li>Paper covers Rock</li>
+<li>Rock crushes Lizard</li>
+<li>Lizard poisons Spock</li>
+<li>Spock smashes Scissors</li>
+<li>Scissors decapitates Lizard</li>
+<li>Lizard eats Paper</li>
+<li>Paper disproves Spock</li>
+<li>Spock vaporizes Rock</li>
+<li>Rock crushes Scissors</li>
+</ul>
+<hr />
+<h2 id="-ascii-art"><a class="header" href="#-ascii-art">📸 ASCII Art</a></h2>
+<p>Each move comes with its own ASCII art for maximum nerd satisfaction:</p>
+<pre><code>Rock:      _______
+        ---'   ____)
+              (_____)
+              (_____)
+              (____)
+        ---.__(___)
+
+Paper:      _______
+        ---'    ____)____
+                   ______)
+                  _______)
+                 _______)
+        ---.__________)
+</code></pre>
+<p>…and more for <strong>Scissors</strong>, <strong>Lizard</strong>, and <strong>Spock</strong>.</p>
+<hr />
+<h2 id="-how-to-run-1"><a class="header" href="#-how-to-run-1">🚀 How to Run</a></h2>
+<ol>
+<li>
+<p><strong>Clone the repo:</strong></p>
+<pre><code class="language-bash">git clone https://github.com/yourusername/rpsls-go.git
+cd rpsls-go
+</code></pre>
+</li>
+<li>
+<p><strong>Run the game:</strong></p>
+<pre><code class="language-bash">go run main.go
+</code></pre>
+</li>
+</ol>
+<hr />
+<h2 id="-features-2"><a class="header" href="#-features-2">🛠 Features</a></h2>
+<ul>
+<li>Fully interactive terminal gameplay</li>
+<li>Input validation (no more typos ruining your match)</li>
+<li>Fun ASCII art for each move</li>
+<li>Randomized computer opponent</li>
+<li>Looping draw condition (keep going until there's a winner)</li>
+</ul>
+<hr />
+<h2 id="-example-gameplay"><a class="header" href="#-example-gameplay">📌 Example Gameplay</a></h2>
+<pre><code>Choose your move:
+Rock
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+
+Paper
+     _______
+---'    ____)____
+           ______)
+          _______)
+         _______)
+---.__________)
+
+... (more ASCII moves) ...
+
+Welcome to the game of Rock, Paper, Scissors, Lizard, Spock
+Do you want to read the rules? [y/n]: y
+
+Sheldon explains:
+Scissors cuts Paper, Paper covers Rock, Rock crushes Lizard, ...
+
+Enter your move (Rock, Paper, Scissors, Lizard, Spock): Spock
+You chose: Spock
+Computer chose: Lizard
+You lost! Hahaha, you suck!
+</code></pre>
+<hr />
+<h2 id="-license"><a class="header" href="#-license">📜 License</a></h2>
+<p>MIT License — feel free to fork, modify, and enjoy.</p>
+<hr />
+<h2 id="-credits"><a class="header" href="#-credits">💡 Credits</a></h2>
+<ul>
+<li>Inspired by <em>The Big Bang Theory</em></li>
+<li>ASCII Art adapted from various open-source snippets</li>
+</ul>
+<hr />
 <div style="break-before: page; page-break-before: always;"></div><h1 id="-bgce-server-backend-api"><a class="header" href="#-bgce-server-backend-api">🛰️ BGCE Server (Backend API)</a></h1>
 <p>Welcome to the <strong>backend server</strong> powering the BGCE (Best Golang Community Ever) archive and control system.<br />
 This project serves as the foundation for category management, RBAC (Role-Based Access Control), and future API integrations — all written in <strong>Golang</strong> with simplicity and scalability in mind.</p>
